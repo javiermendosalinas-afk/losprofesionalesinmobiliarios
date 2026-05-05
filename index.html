@@ -7,7 +7,7 @@
 <meta name="description" content="Encuentra departamentos y casas en venta en Guadalajara, Tlaquepaque, Tonala y Tlajomulco. Acierta Max, los profesionales inmobiliarios.">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  :root { --gold:#C9A84C;--dark:#0D0D0D;--dark2:#1A1A1A;--white:#FAFAF8;--gray:#888;--lgold:#F5EDD6; }
+  :root{--gold:#C9A84C;--dark:#0D0D0D;--dark2:#1A1A1A;--white:#FAFAF8;--gray:#888}
   *{margin:0;padding:0;box-sizing:border-box}
   body{background:var(--dark);color:var(--white);font-family:'DM Sans',sans-serif;min-height:100vh}
   header{background:var(--dark);border-bottom:1px solid rgba(201,168,76,.3);padding:16px 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
@@ -19,7 +19,7 @@
   .hero h1 em{color:var(--gold);font-style:normal}
   .hero p{color:var(--gray);font-size:15px;max-width:500px;margin:0 auto 32px}
   .filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:32px;padding:0 32px}
-  .filter-btn{background:transparent;border:1px solid rgba(201,168,76,.4);color:var(--gray);padding:8px 18px;border-radius:2px;font-family:'DM Sans',sans-serif;font-size:13px;cursor:pointer;transition:all .2s;letter-spacing:.5px}
+  .filter-btn{background:transparent;border:1px solid rgba(201,168,76,.4);color:var(--gray);padding:8px 18px;border-radius:2px;font-family:'DM Sans',sans-serif;font-size:13px;cursor:pointer;transition:all .2s}
   .filter-btn.active,.filter-btn:hover{background:var(--gold);color:var(--dark);border-color:var(--gold);font-weight:500}
   .stats{display:flex;gap:32px;justify-content:center;margin-bottom:48px;flex-wrap:wrap;padding:0 32px}
   .stat{text-align:center}
@@ -39,15 +39,14 @@
   .spec strong{color:var(--white);display:block;font-size:14px}
   .card-price{font-family:'Playfair Display',serif;font-size:22px;color:var(--gold);font-weight:700;margin-bottom:16px}
   .card-price span{font-size:12px;color:var(--gray);font-family:'DM Sans',sans-serif;font-weight:300}
-  .card-cta{display:block;text-align:center;background:transparent;border:1px solid var(--gold);color:var(--gold);padding:10px;font-size:13px;letter-spacing:1px;text-decoration:none;transition:all .2s}
+  .card-cta{display:block;text-align:center;background:transparent;border:1px solid var(--gold);color:var(--gold);padding:10px;font-size:13px;text-decoration:none;transition:all .2s}
   .card-cta:hover{background:var(--gold);color:var(--dark)}
   .loading{text-align:center;padding:80px 32px}
   .spinner{width:40px;height:40px;border:2px solid rgba(201,168,76,.2);border-top-color:var(--gold);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 16px}
   @keyframes spin{to{transform:rotate(360deg)}}
   .loading p{color:var(--gray);font-size:14px}
-  .error-msg{text-align:center;padding:60px 32px;color:var(--gray)}
+  .error-msg,.empty{text-align:center;padding:60px 32px;color:var(--gray);grid-column:1/-1}
   .error-msg strong{color:var(--gold);display:block;font-size:18px;margin-bottom:8px}
-  .empty{text-align:center;padding:60px 32px;color:var(--gray);grid-column:1/-1}
   footer{margin-top:60px;padding:32px;text-align:center;border-top:1px solid rgba(201,168,76,.2);color:var(--gray);font-size:12px;line-height:2}
   footer strong{color:var(--gold)}
   @media(max-width:600px){header{padding:12px 16px}.hero{padding:40px 16px 24px}.grid{grid-template-columns:1fr}}
@@ -80,20 +79,41 @@
 <footer>
   <strong>Acierta Max - Los Profesionales Inmobiliarios</strong><br>
   33 44 44 14 44 · contacto@acierta.com.mx · @acierta.aqui<br>
-  NOM-247-SE-2021 · Contratos registrados ante PROFECO<br>
-  Precios sujetos a cambio sin previo aviso. Imagenes ilustrativas.
+  NOM-247-SE-2021 · Contratos registrados ante PROFECO
 </footer>
 <script>
 const WA='523344441444';
-const CITIES=['guadalajara','tlaquepaque','san pedro tlaquepaque','tonala','tonal','tlajomulco'];
 let allProps=[],currentFilter='all';
 function fmt(p){if(!p)return'Consultar precio';const n=parseFloat(p);if(n>=1000000)return'$'+(n/1000000).toFixed(2).replace(/\.?0+$/,'')+'M';if(n>=1000)return'$'+(n/1000).toFixed(0)+'K';return'$'+n.toLocaleString('es-MX')}
-function city(p){return(p.location?.city||p.city||'').toLowerCase()}
-function matches(p,f){if(f==='all')return true;const c=city(p);if(f==='Tlaquepaque')return c.includes('tlaquepaque');if(f==='Tonala')return c.includes('tonal');if(f==='Tlajomulco')return c.includes('tlajomulco');if(f==='Guadalajara')return c.includes('guadalajara');return true}
-function card(p){const title=p.title||p.property_type||'Propiedad';const c=p.location?.city||p.city||'';const price=fmt(p.sale_price||p.price);const beds=p.bedrooms||p.bedrooms_count||'-';const baths=p.bathrooms||p.bathrooms_count||'-';const area=p.construction_size||p.lot_size||'-';const img=p.property_images?.[0]?.url||p.images?.[0]?.url||null;const type=p.property_type||'Propiedad';const msg=encodeURIComponent('Hola, me interesa: '+title+' en '+c+'. Me dan mas informacion?');return`<div class="card">${img?`<img class="card-img" src="${img}" alt="${title}" loading="lazy">`:`<div class="card-img-placeholder">🏠</div>`}<div class="card-badge">${type}</div><div class="card-body"><div class="card-location">📍 ${c}</div><div class="card-title">${title}</div><div class="card-specs"><div class="spec"><strong>${beds}</strong>Recamaras</div><div class="spec"><strong>${baths}</strong>Banos</div><div class="spec"><strong>${area}m²</strong>Area</div></div><div class="card-price">${price} <span>MXN</span></div><a href="https://wa.me/${WA}?text=${msg}" target="_blank" class="card-cta">📱 Quiero informacion</a></div></div>`}
-function render(props){const el=document.getElementById('main-content');if(!props.length){el.innerHTML='<div class="empty">No hay propiedades en esta zona por el momento.</div>';return}el.innerHTML=`<div class="grid">${props.map(card).join('')}</div>`;document.getElementById('total-count').textContent=props.length}
+function getCity(p){return(p.location?.city||p.city||'').toLowerCase()}
+function isZMG(p){const c=getCity(p);return c.includes('guadalajara')||c.includes('tlaquepaque')||c.includes('tonal')||c.includes('tlajomulco')}
+function matches(p,f){if(f==='all')return true;const c=getCity(p);if(f==='Guadalajara')return c.includes('guadalajara');if(f==='Tlaquepaque')return c.includes('tlaquepaque');if(f==='Tonala')return c.includes('tonal');if(f==='Tlajomulco')return c.includes('tlajomulco');return true}
+function card(p){const title=p.title||p.property_type||'Propiedad';const c=p.location?.city||p.city||'';const price=fmt(p.sale_price||p.price);const beds=p.bedrooms||p.bedrooms_count||'-';const baths=p.bathrooms||p.bathrooms_count||'-';const area=p.construction_size||p.lot_size||'-';const img=p.property_images?.[0]?.url||p.images?.[0]?.url||null;const type=p.property_type||'Propiedad';const msg=encodeURIComponent('Hola, me interesa: '+title+' en '+c+'. Me dan mas informacion?');return`<div class="card">${img?`<img class="card-img" src="${img}" alt="${title}" loading="lazy">`:`<div class="card-img-placeholder">🏠</div>`}<div class="card-badge">${type}</div><div class="card-body"><div class="card-location">📍 ${c}</div><div class="card-title">${title}</div><div class="card-specs"><div class="spec"><strong>${beds}</strong>Recamaras</div><div class="spec"><strong>${baths}</strong>Banos</div><div class="spec"><strong>${area}m2</strong>Area</div></div><div class="card-price">${price} <span>MXN</span></div><a href="https://wa.me/${WA}?text=${msg}" target="_blank" class="card-cta">📱 Quiero informacion</a></div></div>`}
+function render(props){const el=document.getElementById('main-content');if(!props.length){el.innerHTML='<div class="empty">No hay propiedades en esta zona.</div>';return}el.innerHTML=`<div class="grid">${props.map(card).join('')}</div>`;document.getElementById('total-count').textContent=props.length}
 document.querySelectorAll('.filter-btn').forEach(btn=>{btn.addEventListener('click',()=>{document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');currentFilter=btn.dataset.city;const f=currentFilter==='all'?allProps:allProps.filter(p=>matches(p,currentFilter));document.getElementById('total-count').textContent=f.length;render(f)})});
-async function load(){try{const pages=await Promise.all([1,2,3].map(pg=>fetch(`/.netlify/functions/properties?page=${pg}`).then(r=>r.json())));const all=pages.flatMap(d=>d.content||d.properties||[]);allProps=all.filter(p=>CITIES.some(c=>city(p).includes(c)));document.getElementById('total-count').textContent=allProps.length;render(allProps)}catch(e){document.getElementById('main-content').innerHTML=`<div class="error-msg"><strong>Error cargando propiedades</strong><a href="https://wa.me/${WA}" target="_blank" style="color:var(--gold);display:block;margin-top:16px">📱 Contactanos al 33 44 44 14 44</a></div>`}}
+async function load(){
+  try{
+    let found=[],pg=1;
+    while(pg<=15&&found.length<30){
+      const r=await fetch('/.netlify/functions/properties?page='+pg);
+      const d=await r.json();
+      const props=d.content||d.properties||[];
+      if(!props.length)break;
+      found=[...found,...props.filter(p=>isZMG(p))];
+      pg++;
+    }
+    if(!found.length){
+      const r=await fetch('/.netlify/functions/properties?page=1');
+      const d=await r.json();
+      found=d.content||d.properties||[];
+    }
+    allProps=found;
+    document.getElementById('total-count').textContent=allProps.length;
+    render(allProps);
+  }catch(e){
+    document.getElementById('main-content').innerHTML='<div class="error-msg"><strong>Error cargando propiedades</strong><a href="https://wa.me/'+WA+'" target="_blank" style="color:var(--gold);display:block;margin-top:16px">📱 Contactanos al 33 44 44 14 44</a></div>';
+  }
+}
 load();
 </script>
 </body>
