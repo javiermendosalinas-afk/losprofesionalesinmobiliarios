@@ -1,0 +1,16 @@
+name: Inventario diario desde acierta.pro
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "30 13 * * *"
+permissions:
+  contents: write
+jobs:
+  inventario:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 -u herramientas/inventario.py
+      - run: |
+          git config user.email "claude@acierta.pro"; git config user.name "Inventario automatico"
+          git add inventario.json; git diff --cached --quiet || (git commit -m "Inventario del dia" && git push)

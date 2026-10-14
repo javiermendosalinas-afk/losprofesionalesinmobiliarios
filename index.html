@@ -15,7 +15,7 @@ em{font-style:italic;color:var(--bermellon)}
 .b1{background:var(--bermellon);color:#fff}.b2{background:var(--cobalto);color:#fff}.bw{background:var(--wa);color:#fff}
 .top{position:sticky;top:0;z-index:9;background:rgba(246,240,230,.94);backdrop-filter:blur(6px);border-bottom:1px solid #E4DACB}
 .top .w{display:flex;justify-content:space-between;align-items:center;height:64px}.logo{font-family:var(--serif);font-size:1.35rem;text-decoration:none}
-.logo span{color:var(--bermellon)}.top nav{display:flex;gap:22px;font-size:.98rem}.top nav a{text-decoration:none}@media(max-width:860px){.top nav{display:none}}
+.logo span{color:var(--bermellon)}.top nav{display:flex;gap:16px;font-size:.92rem}.top nav a{text-decoration:none}@media(max-width:1180px){.top nav{display:none}}
 /* portada: composición de formas */
 .hero{position:relative;overflow:hidden;padding:80px 0 90px}
 .hero .w{position:relative;z-index:2;display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center}
@@ -60,11 +60,22 @@ em{font-style:italic;color:var(--bermellon)}
 @media(max-width:860px){.prop{grid-template-columns:1fr}.marco{max-width:380px}}
 .cred{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}.cred span{border:2px solid var(--tinta);border-radius:999px;padding:9px 16px;font-weight:500}
 .cierre{text-align:center;background:var(--tinta);color:#fff}.cierre p{color:#BDB6AC;max-width:34em;margin:14px auto 28px}
+.filtros{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;margin:34px 0 10px;padding:18px;background:#fff;border-radius:22px;border:1px solid #E4DACB}
+.filtros label{display:flex;flex-direction:column;font-size:.85rem;color:var(--suave);gap:4px}.filtros select,.filtros input{font:inherit;font-size:1rem;padding:9px 12px;border:1.5px solid #D9CEBD;border-radius:999px;background:var(--crema);min-width:150px}
+.filtros .txt input{min-width:220px}.seg{display:flex;border:2px solid var(--tinta);border-radius:999px;overflow:hidden}.seg button{font:inherit;font-weight:700;border:0;background:transparent;padding:10px 18px;cursor:pointer}
+.seg button.on{background:var(--tinta);color:#fff}.limpiar{font:inherit;border:0;background:none;color:var(--bermellon);font-weight:700;cursor:pointer;padding:10px}
+.cuenta{color:var(--suave);margin:14px 0 26px}.obras{display:grid;grid-template-columns:repeat(4,1fr);gap:40px 26px}
+.obra{text-decoration:none;text-align:center;display:block}.obra .img{aspect-ratio:1;border-radius:50%;background:#E4DACB center/cover;border:6px solid #fff;box-shadow:0 0 0 2px var(--tinta);transition:transform .2s}
+.obra:nth-child(4n+1) .img{box-shadow:0 0 0 2px var(--cobalto)}.obra:nth-child(4n+2) .img{box-shadow:0 0 0 2px var(--bermellon)}.obra:nth-child(4n+3) .img{box-shadow:0 0 0 2px var(--ocre)}
+.obra:hover .img{transform:scale(1.03) rotate(1.5deg)}.obra b{display:block;font-family:var(--serif);font-weight:400;font-size:1.45rem;margin-top:14px}
+.obra span{display:block;color:var(--suave);font-size:.95rem;line-height:1.4}.obra .preg{display:inline-block;margin-top:8px;font-size:.88rem;color:var(--wa);font-weight:700}
+.vida{cursor:pointer}.vida.on .circ{outline:4px solid var(--tinta);outline-offset:6px}
+@media(max-width:980px){.obras{grid-template-columns:repeat(3,1fr)}}@media(max-width:700px){.obras{grid-template-columns:1fr 1fr;gap:28px 16px}.filtros select,.filtros input{min-width:0;width:100%}.filtros label{flex:1 1 45%}}
 footer{background:#111;color:#9C958B;font-size:.88rem;padding:36px 0 100px;line-height:1.6}footer b{color:#fff}
 .flot{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));display:none;z-index:10}.flot .btn{width:100%}@media(max-width:760px){.flot{display:block}}
 </style></head><body>
 <header class="top"><div class="w"><a class="logo" href="#">Los Profesionales <span>Inmobiliarios</span></a>
-<nav><a href="#vivir">¿Cómo quieres vivir?</a><a href="#personas">Las personas</a><a href="#metodo">Cómo trabajamos</a><a href="#propietarios">Vender o rentar</a></nav>
+<nav><a href="#vivir">¿Cómo quieres vivir?</a><a href="#galeria">La galería</a><a href="#personas">Las personas</a><a href="#metodo">Cómo trabajamos</a><a href="#propietarios">Vender o rentar</a></nav>
 <a class="btn bw" style="padding:9px 18px" href="https://wa.me/523333777337?text=Hola%2C%20vengo%20de%20losprofesionalesinmobiliarios.com" target="_blank" rel="noopener">WhatsApp</a></div></header>
 <main>
 <section class="hero"><div class="w"><div>
@@ -74,15 +85,33 @@ footer{background:#111;color:#9C958B;font-size:.88rem;padding:36px 0 100px;line-
 <div class="comp" aria-hidden="true"><span class="s1"></span><span class="s2"></span><span class="s3"></span><span class="s4"></span><span class="s5"></span><span class="s6"></span></div></div></section>
 
 <section class="sec" id="vivir" style="padding-top:30px"><div class="w"><h2>¿Cómo <em>quieres</em> vivir?</h2>
-<p class="intro">No empieces por el número de recámaras. Empieza por la vida que quieres. Elige la tuya y te proponemos opciones que la hagan posible.</p>
+<p class="intro">No empieces por el número de recámaras. Empieza por la vida que quieres. Toca la tuya y te mostramos las propiedades que la hacen posible.</p>
 <div class="vidas">
-<a class="vida" href="https://wa.me/523333777337?text=Quiero%20despertar%20con%20vista.%20Vengo%20de%20losprofesionalesinmobiliarios.com" target="_blank" rel="noopener"><div class="circ c1">Quiero despertar con vista</div><p>Departamentos en lo alto, con terraza y ciudad a tus pies.</p></a>
-<a class="vida" href="https://wa.me/523333777337?text=Quiero%20que%20mis%20hijos%20jueguen%20afuera.%20Vengo%20de%20losprofesionalesinmobiliarios.com" target="_blank" rel="noopener"><div class="circ c2">Quiero que mis hijos jueguen afuera</div><p>Casas en coto, con parques y seguridad para tu familia.</p></a>
-<a class="vida" href="https://wa.me/523333777337?text=Quiero%20caminar%20a%20todo.%20Vengo%20de%20losprofesionalesinmobiliarios.com" target="_blank" rel="noopener"><div class="circ c3">Quiero caminar a todo</div><p>Vivir cerca del trabajo, la escuela, el café y el parque.</p></a>
-<a class="vida" href="https://wa.me/523333777337?text=Quiero%20mi%20primera%20casa.%20Vengo%20de%20losprofesionalesinmobiliarios.com" target="_blank" rel="noopener"><div class="circ c4">Quiero mi primera casa</div><p>Te ayudamos a usar tu Infonavit y a elegir sin miedo.</p></a>
-<a class="vida" href="https://wa.me/523333777337?text=Quiero%20que%20mi%20dinero%20crezca.%20Vengo%20de%20losprofesionalesinmobiliarios.com" target="_blank" rel="noopener"><div class="circ c5">Quiero que mi dinero crezca</div><p>Propiedades para rentar o para proteger tu patrimonio.</p></a>
-<a class="vida" href="https://wa.me/523333777337?text=Quiero%20construir%20a%20mi%20manera.%20Vengo%20de%20losprofesionalesinmobiliarios.com" target="_blank" rel="noopener"><div class="circ c6">Quiero construir a mi manera</div><p>Terrenos para la casa que solo existe en tu cabeza.</p></a>
-</div><p class="intro" style="margin-top:40px">¿Prefieres buscar por tu cuenta? Explora más de 10,000 propiedades en <a href="https://acierta.pro">acierta.pro</a>.</p></div></section>
+<a class="vida" href="#galeria" data-vida="vista"><div class="circ c1">Quiero despertar con vista</div><p>Departamentos en lo alto, con terraza y ciudad a tus pies.</p></a>
+<a class="vida" href="#galeria" data-vida="hijos"><div class="circ c2">Quiero que mis hijos jueguen afuera</div><p>Casas en coto, con parques y seguridad para tu familia.</p></a>
+<a class="vida" href="#galeria" data-vida="caminar"><div class="circ c3">Quiero caminar a todo</div><p>Vivir cerca del trabajo, la escuela, el café y el parque.</p></a>
+<a class="vida" href="#galeria" data-vida="primera"><div class="circ c4">Quiero mi primera casa</div><p>Te ayudamos a usar tu Infonavit y a elegir sin miedo.</p></a>
+<a class="vida" href="#galeria" data-vida="dinero"><div class="circ c5">Quiero que mi dinero crezca</div><p>Propiedades para rentar o para proteger tu patrimonio.</p></a>
+<a class="vida" href="#galeria" data-vida="construir"><div class="circ c6">Quiero construir a mi manera</div><p>Terrenos para la casa que solo existe en tu cabeza.</p></a>
+</div></div></section>
+
+
+<section class="sec" id="galeria" style="padding-top:10px"><div class="w">
+<h2 id="g-titulo">La galería</h2><p class="intro" id="g-intro">Más de 8,000 casas, departamentos y terrenos en la Zona Metropolitana de Guadalajara, actualizados cada día.</p>
+<form class="filtros" id="filtros" onsubmit="return false" aria-label="Filtros de búsqueda">
+<div class="seg" role="group" aria-label="Operación"><button type="button" data-o="V" class="on">Comprar</button><button type="button" data-o="R">Rentar</button></div>
+<label>Tipo<select id="f-t"><option value="">Todos</option><option value="c">Casa</option><option value="d">Departamento</option><option value="t">Terreno</option></select></label>
+<label>Municipio<select id="f-u"><option value="">Toda la ZMG</option><option>Guadalajara</option><option>Zapopan</option><option>Tlaquepaque</option><option>Tlajomulco de Zúñiga</option><option>Tonalá</option><option>El Salto</option></select></label>
+<label>Precio hasta<select id="f-p"><option value="">Sin límite</option></select></label>
+<label>Recámaras<select id="f-r"><option value="">Cualquiera</option><option value="1">1 o más</option><option value="2">2 o más</option><option value="3">3 o más</option><option value="4">4 o más</option></select></label>
+<label class="txt">Colonia o palabra<input id="f-q" type="search" placeholder="Ej. Providencia, alberca, roof"></label>
+<button type="button" id="f-limpiar" class="limpiar">Limpiar</button>
+</form>
+<p class="cuenta" id="g-cuenta" aria-live="polite">Cargando la galería…</p>
+<div class="obras" id="obras"></div>
+<p style="text-align:center;margin-top:34px"><button type="button" class="btn b2" id="g-mas" hidden>Ver más</button></p>
+<p class="intro" style="text-align:center;margin:26px auto 0">¿No ves lo que buscas? <a href="https://wa.me/523333777337?text=Hola%2C%20vengo%20de%20losprofesionalesinmobiliarios.com.%20Busco%20algo%20que%20no%20vi%20en%20la%20galer%C3%ADa" target="_blank" rel="noopener">Cuéntanos qué quieres</a> y lo buscamos por ti.</p>
+</div></section>
 
 <section class="sec azul" id="personas"><div class="w"><h2>Las personas detrás de tu decisión</h2>
 <p class="intro">Somos Acierta Max: un equipo que conoce Guadalajara, que te dice la verdad aunque no sea lo que quieres oír, y que no te suelta hasta que tienes tus llaves.</p>
@@ -117,4 +146,43 @@ footer{background:#111;color:#9C958B;font-size:.88rem;padding:36px 0 100px;line-
 </main>
 <footer><div class="w"><p><b>Acierta Max, S.A. de C.V.</b> · Los Profesionales Inmobiliarios · Miembros de AMPI Guadalajara y de la National Association of REALTORS®. WhatsApp 33 3377 7337 · <a href="https://acierta.pro">acierta.pro</a> · <a href="https://acierta.pro/aviso-privacidad.html">Aviso de privacidad</a></p></div></footer>
 <div class="flot"><a class="btn bw" href="https://wa.me/523333777337?text=Hola%2C%20vengo%20de%20losprofesionalesinmobiliarios.com" target="_blank" rel="noopener">Escríbenos por WhatsApp</a></div>
+<script>
+(function(){
+var D=[],sel=[],vista=24,o="V",vida="",$=function(i){return document.getElementById(i)};
+var fmt=function(v){return "$"+v.toLocaleString("es-MX")};
+var TOPES_V=[1500000,2000000,2500000,3000000,4000000,5000000,7000000,10000000],TOPES_R=[8000,10000,15000,20000,30000,50000];
+function topes(){var s=$("f-p"),v=s.value;s.innerHTML='<option value="">Sin límite</option>'+(o=="V"?TOPES_V:TOPES_R).map(function(x){return '<option value="'+x+'">'+fmt(x)+'</option>'}).join("");s.value=v&&[].some.call(s.options,function(op){return op.value==v})?v:"";}
+var CENTRO=/americana|providencia|chapultepec|lafayette|ladr[oó]n de guevara|centro|moderna|arcos vallarta|vallarta norte|vallarta poniente|country club|jardines del bosque|italia|santa teresita|mezquit[aá]n/i;
+var VIDAS={
+ vista:{t:"Quiero despertar con vista",i:"Departamentos con vista, terraza o roof garden.",f:function(x){return x.t=="d"&&/vista|terraza|roof|rooftop|penthouse|torre|panor/i.test(x.ti)}},
+ hijos:{t:"Quiero que mis hijos jueguen afuera",i:"Casas en coto, con parques, jardín o alberca.",f:function(x){return x.t=="c"&&/coto|privada|parque|jard[ií]n|alberca|[aá]reas? verdes|club/i.test(x.ti)}},
+ caminar:{t:"Quiero caminar a todo",i:"Colonias céntricas de Guadalajara, donde todo te queda cerca.",f:function(x){return x.u=="Guadalajara"&&CENTRO.test(x.c+" "+x.ti)}},
+ primera:{t:"Quiero mi primera casa",i:"Casas y departamentos en venta hasta $2,600,000, ideales para usar tu Infonavit.",f:function(x){return x.o=="V"&&x.t!="t"&&x.p<=2600000}},
+ dinero:{t:"Quiero que mi dinero crezca",i:"Departamentos en venta hasta $4,500,000 en Guadalajara y Zapopan, buenos para rentar.",f:function(x){return x.o=="V"&&x.t=="d"&&x.p<=4500000&&(x.u=="Guadalajara"||x.u=="Zapopan")}},
+ construir:{t:"Quiero construir a mi manera",i:"Terrenos para construir la casa que imaginas.",f:function(x){return x.t=="t"}}};
+function filtrar(){
+ var t=$("f-t").value,u=$("f-u").value,p=+$("f-p").value||0,r=+$("f-r").value||0,q=$("f-q").value.trim().toLowerCase(),V=vida&&VIDAS[vida];
+ sel=D.filter(function(x){return (V&&vida!="primera"&&vida!="dinero"?x.o==o:x.o==o||V)&&(!V||V.f(x))&&(!t||x.t==t)&&(!u||x.u==u)&&(!p||x.p<=p)&&(!r||(x.r||0)>=r)&&(!q||(x.c+" "+x.ti+" "+x.u).toLowerCase().indexOf(q)>=0)});
+ sel.sort(function(a,b){return a.p-b.p});vista=24;pintar();
+ $("g-titulo").textContent=V?V.t:"La galería";$("g-intro").textContent=V?V.i:"Más de 8,000 casas, departamentos y terrenos en la Zona Metropolitana de Guadalajara, actualizados cada día.";
+}
+function pintar(){
+ var tipo={c:"Casa",d:"Departamento",t:"Terreno"};
+ $("obras").innerHTML=sel.slice(0,vista).map(function(x){
+  var det=[tipo[x.t],x.r?x.r+" rec.":"",x.m?x.m+" m²":""].filter(Boolean).join(" · ");
+  return '<a class="obra" href="https://acierta.pro/ficha.html?eb='+x.e+'" target="_blank" rel="noopener"><div class="img" role="img" aria-label="'+(x.ti||"Propiedad").replace(/"/g,"")+'" style="background-image:url(\''+x.f+'\')"></div><b>'+fmt(x.p)+(x.o=="R"?" /mes":"")+'</b><span>'+det+'</span><span>'+(x.c?x.c+", ":"")+x.u+'</span><span class="preg">'+x.e+'</span></a>'}).join("");
+ $("g-cuenta").textContent=sel.length?sel.length.toLocaleString("es-MX")+" propiedades, de menor a mayor precio":"No encontramos propiedades con estos filtros. Prueba quitando alguno.";
+ $("g-mas").hidden=vista>=sel.length;
+}
+document.querySelectorAll(".seg button").forEach(function(b){b.onclick=function(){o=b.dataset.o;document.querySelectorAll(".seg button").forEach(function(x){x.classList.toggle("on",x==b)});topes();filtrar()}});
+["f-t","f-u","f-p","f-r"].forEach(function(i){$(i).onchange=filtrar});$("f-q").oninput=function(){clearTimeout(this._t);this._t=setTimeout(filtrar,250)};
+$("f-limpiar").onclick=function(){["f-t","f-u","f-p","f-r","f-q"].forEach(function(i){$(i).value=""});vida="";o="V";document.querySelectorAll(".seg button").forEach(function(x){x.classList.toggle("on",x.dataset.o=="V")});topes();document.querySelectorAll(".vida").forEach(function(v){v.classList.remove("on")});filtrar()};
+$("g-mas").onclick=function(){vista+=24;pintar()};
+document.querySelectorAll(".vida").forEach(function(a){a.onclick=function(e){e.preventDefault();vida=vida==a.dataset.vida?"":a.dataset.vida;document.querySelectorAll(".vida").forEach(function(v){v.classList.toggle("on",v.dataset.vida==vida)});
+ if(vida&&(vida=="primera"||vida=="dinero")){o="V";document.querySelectorAll(".seg button").forEach(function(x){x.classList.toggle("on",x.dataset.o=="V")});topes()}
+ filtrar();$("galeria").scrollIntoView({behavior:"smooth"})}});
+topes();
+fetch("inventario.json").then(function(r){return r.json()}).then(function(d){D=d;filtrar()}).catch(function(){$("g-cuenta").innerHTML='No pudimos cargar la galería. Busca en <a href="https://acierta.pro">acierta.pro</a> o escríbenos por WhatsApp.'});
+})();
+</script>
 </body></html>
