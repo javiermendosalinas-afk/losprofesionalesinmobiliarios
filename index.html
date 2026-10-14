@@ -1,201 +1,120 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Los Profesionales Inmobiliarios — Acierta Max | Propiedades GDL</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<!DOCTYPE html><html lang="es-MX"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Los Profesionales Inmobiliarios · Acierta Max · Guadalajara</title>
+<meta name="description" content="Detrás de cada buena decisión inmobiliaria hay profesionales. Vende, renta o encuentra tu hogar en Guadalajara con asesores certificados, contratos claros y acompañamiento de principio a fin.">
+<link rel="canonical" href="https://losprofesionalesinmobiliarios.com/"><meta name="theme-color" content="#1D3A8A">
+<meta property="og:title" content="Los Profesionales Inmobiliarios · Acierta Max"><meta property="og:description" content="Las personas detrás de tu decisión: vende, renta o encuentra tu hogar con profesionales certificados.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@400;500;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"RealEstateAgent","name":"Acierta Max · Los Profesionales Inmobiliarios","url":"https://losprofesionalesinmobiliarios.com/","telephone":"+52 33 3377 7337","areaServed":"Zona Metropolitana de Guadalajara","memberOf":[{"@type":"Organization","name":"AMPI Guadalajara"},{"@type":"Organization","name":"National Association of REALTORS®"}],"sameAs":["https://acierta.pro"]}</script>
 <style>
-:root{--gold:#C9A84C;--dark:#0D0D0D;--dark2:#1A1A1A;--white:#FAFAF8;--gray:#888;--border:rgba(201,168,76,.3)}
-*{margin:0;padding:0;box-sizing:border-box}
-body{background:var(--dark);color:var(--white);font-family:'DM Sans',sans-serif}
-header{background:var(--dark);border-bottom:1px solid var(--border);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
-.logo{font-family:'Playfair Display',serif;font-size:20px;color:var(--gold)}
-.logo span{color:var(--white);font-weight:300;font-size:11px;display:block;letter-spacing:3px;text-transform:uppercase}
-.header-cta{background:var(--gold);color:var(--dark);padding:8px 16px;border-radius:2px;font-size:13px;font-weight:600;text-decoration:none}
-.hero{padding:40px 24px 24px;text-align:center}
-.hero h1{font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,48px);font-weight:900;line-height:1.1;margin-bottom:8px}
-.hero h1 em{color:var(--gold);font-style:normal}
-.hero p{color:var(--gray);font-size:14px;max-width:500px;margin:0 auto}
-.filters-panel{background:var(--dark2);border-bottom:1px solid var(--border);padding:16px 24px}
-.filters-row{display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;margin-bottom:12px}
-.filter-group{display:flex;flex-direction:column;gap:4px;min-width:140px}
-.filter-group label{font-size:11px;color:var(--gray);letter-spacing:1px;text-transform:uppercase}
-.filter-select,.filter-input{background:var(--dark);border:1px solid var(--border);color:var(--white);padding:8px 12px;border-radius:2px;font-family:'DM Sans',sans-serif;font-size:13px;width:100%}
-.filter-select:focus,.filter-input:focus{outline:none;border-color:var(--gold)}
-.filter-select option{background:var(--dark)}
-.btn-search{background:var(--gold);color:var(--dark);border:none;padding:9px 24px;border-radius:2px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap}
-.btn-search:hover{opacity:.9}
-.btn-clear{background:transparent;color:var(--gray);border:1px solid var(--border);padding:9px 16px;border-radius:2px;font-family:'DM Sans',sans-serif;font-size:13px;cursor:pointer}
-.btn-clear:hover{border-color:var(--gold);color:var(--gold)}
-.stats-bar{display:flex;gap:24px;padding:16px 24px;border-bottom:1px solid var(--border);align-items:center;flex-wrap:wrap}
-.stat{text-align:center}
-.stat-num{font-family:'Playfair Display',serif;font-size:24px;color:var(--gold);font-weight:700}
-.stat-label{font-size:10px;color:var(--gray);letter-spacing:2px;text-transform:uppercase}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:2px;padding:2px}
-.card{background:var(--dark2);overflow:hidden;transition:transform .3s;position:relative;cursor:pointer}
-.card:hover{transform:scale(1.02);z-index:10}
-.card-img{width:100%;height:200px;object-fit:cover;display:block}
-.card-img-placeholder{width:100%;height:200px;background:linear-gradient(135deg,#1a1a1a,#2a2a2a);display:flex;align-items:center;justify-content:center;font-size:40px;color:rgba(201,168,76,.2)}
-.card-badge{position:absolute;top:10px;left:10px;background:var(--gold);color:var(--dark);font-size:9px;font-weight:700;letter-spacing:2px;padding:3px 8px;text-transform:uppercase}
-.card-op{position:absolute;top:10px;right:10px;background:rgba(0,0,0,.7);color:var(--white);font-size:9px;font-weight:700;letter-spacing:1px;padding:3px 8px;text-transform:uppercase;border-radius:2px}
-.card-body{padding:16px}
-.card-price{font-family:'Playfair Display',serif;font-size:20px;color:var(--gold);font-weight:700;margin-bottom:4px}
-.card-title{font-size:14px;margin-bottom:4px;line-height:1.3;font-weight:500}
-.card-location{font-size:11px;color:var(--gold);letter-spacing:1px;text-transform:uppercase;margin-bottom:10px}
-.card-specs{display:flex;gap:12px;margin-bottom:12px;flex-wrap:wrap}
-.spec{font-size:11px;color:var(--gray)}
-.spec strong{color:var(--white);display:block;font-size:13px}
-.card-cta{display:block;text-align:center;background:transparent;border:1px solid var(--gold);color:var(--gold);padding:8px;font-size:12px;letter-spacing:1px;text-decoration:none;transition:all .2s}
-.card-cta:hover{background:var(--gold);color:var(--dark)}
-.loading{text-align:center;padding:60px 24px}
-.spinner{width:36px;height:36px;border:2px solid rgba(201,168,76,.2);border-top-color:var(--gold);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 12px}
-@keyframes spin{to{transform:rotate(360deg)}}
-.loading p{color:var(--gray);font-size:14px}
-.error-msg,.empty{text-align:center;padding:60px 24px;color:var(--gray);grid-column:1/-1}
-.error-msg strong,.empty strong{color:var(--gold);display:block;font-size:16px;margin-bottom:8px}
-.pagination{display:flex;gap:8px;justify-content:center;padding:24px;flex-wrap:wrap}
-.page-btn{background:transparent;border:1px solid var(--border);color:var(--gray);padding:8px 16px;border-radius:2px;font-family:'DM Sans',sans-serif;font-size:13px;cursor:pointer;transition:all .2s}
-.page-btn:hover,.page-btn.active{background:var(--gold);color:var(--dark);border-color:var(--gold)}
-footer{margin-top:40px;padding:24px;text-align:center;border-top:1px solid var(--border);color:var(--gray);font-size:11px;line-height:2}
-footer strong{color:var(--gold)}
-@media(max-width:600px){header{padding:12px 16px}.filters-row{flex-direction:column}.filter-group{min-width:100%}.grid{grid-template-columns:1fr}}
-</style>
-</head>
-<body>
-<header>
-  <div class="logo">🎯 Acierta Max<span>Los Profesionales Inmobiliarios</span></div>
-  <a href="https://wa.me/523344441444" target="_blank" class="header-cta">📱 33 44 44 14 44</a>
-</header>
-<div class="hero">
-  <h1>Propiedades en<br><em>Guadalajara</em> y ZMG</h1>
-  <p>Venta y renta de propiedades premium en Guadalajara, Zapopan, Tlaquepaque, Tonalá y Tlajomulco.</p>
-</div>
-<div class="filters-panel">
-  <div class="filters-row">
-    <div class="filter-group">
-      <label>Operación</label>
-      <select class="filter-select" id="f-operation">
-        <option value="all">Venta y Renta</option>
-        <option value="sale">En Venta</option>
-        <option value="rent">En Renta</option>
-      </select>
-    </div>
-    <div class="filter-group">
-      <label>Ciudad</label>
-      <select class="filter-select" id="f-city">
-        <option value="all">Todas las ciudades</option>
-        <option value="Guadalajara">Guadalajara</option>
-        <option value="Zapopan">Zapopan</option>
-        <option value="Tlaquepaque">Tlaquepaque</option>
-        <option value="Tonalá">Tonalá</option>
-        <option value="Tlajomulco de Zúñiga">Tlajomulco</option>
-      </select>
-    </div>
-    <div class="filter-group">
-      <label>Tipo de propiedad</label>
-      <select class="filter-select" id="f-type">
-        <option value="all">Todos los tipos</option>
-        <option value="Casa">Casa</option>
-        <option value="Departamento">Departamento</option>
-        <option value="Terreno">Terreno</option>
-        <option value="Local comercial">Local comercial</option>
-        <option value="Oficina">Oficina</option>
-        <option value="Bodega">Bodega</option>
-      </select>
-    </div>
-    <div class="filter-group">
-      <label>Recámaras</label>
-      <select class="filter-select" id="f-bedrooms">
-        <option value="">Cualquiera</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4+</option>
-      </select>
-    </div>
-    <div class="filter-group">
-      <label>Precio mínimo</label>
-      <input type="number" class="filter-input" id="f-min" placeholder="Ej: 2000000">
-    </div>
-    <div class="filter-group">
-      <label>Precio máximo</label>
-      <input type="number" class="filter-input" id="f-max" placeholder="Ej: 10000000">
-    </div>
-    <button class="btn-search" onclick="search()">🔍 Buscar</button>
-    <button class="btn-clear" onclick="clearFilters()">Limpiar</button>
-  </div>
-</div>
-<div class="stats-bar">
-  <div class="stat"><div class="stat-num" id="total-count">—</div><div class="stat-label">Resultados</div></div>
-  <div class="stat"><div class="stat-num">609</div><div class="stat-label">Colaboradores</div></div>
-  <div class="stat"><div class="stat-num">16K+</div><div class="stat-label">En Red AMPI</div></div>
-</div>
-<div id="main-content">
-  <div class="loading"><div class="spinner"></div><p>Cargando propiedades...</p></div>
-</div>
-<div id="pagination" class="pagination"></div>
-<footer>
-  <strong>Acierta Max — Los Profesionales Inmobiliarios</strong><br>
-  33 44 44 14 44 · @acierta.aqui · aciertamax.com.mx<br>
-  NOM-247-SE-2021 · Garantía PROFECO · Precios sujetos a cambio sin previo aviso.
-</footer>
-<script>
-const WA='523344441444';
-let currentPage=1,totalPages=1,currentParams={};
-function fmt(p){if(!p)return'Consultar precio';const n=parseFloat(p);if(n>=1000000)return'$'+(n/1000000).toFixed(2).replace(/\.?0+$/,'')+'M';if(n>=1000)return'$'+(n/1000).toFixed(0)+'K';return'$'+n.toLocaleString('es-MX')}
-function getPrice(p){return p.sale_price||p.rental_price||p.price||0}
-function getOperation(p){if(p.operation_type==='rent'||p.rental_price)return'En Renta';return'En Venta'}
-function card(p){
-  const title=p.title||p.property_type||'Propiedad';
-  const city=p.location?.city||p.city||'';
-  const price=fmt(getPrice(p));
-  const op=getOperation(p);
-  const beds=p.bedrooms||p.bedrooms_count||'—';
-  const baths=p.bathrooms||p.bathrooms_count||'—';
-  const area=p.construction_size||p.lot_size||'—';
-  const img=p.property_images?.[0]?.url||p.images?.[0]?.url||null;
-  const type=p.property_type||'Propiedad';
-  const msg=encodeURIComponent('Hola, me interesa: '+title+' en '+city+'. ¿Me pueden dar más información?');
-  const url=p.public_url||p.url||'#';
-  return`<div class="card" onclick="window.open('${url}','_blank')">${img?`<img class="card-img" src="${img}" alt="${title}" loading="lazy">`:`<div class="card-img-placeholder">🏠</div>`}<div class="card-badge">${type}</div><div class="card-op">${op}</div><div class="card-body"><div class="card-price">${price} <span style="font-size:11px;color:var(--gray);font-family:'DM Sans',sans-serif">MXN</span></div><div class="card-title">${title}</div><div class="card-location">📍 ${city}</div><div class="card-specs"><div class="spec"><strong>${beds}</strong>Rec</div><div class="spec"><strong>${baths}</strong>Baños</div><div class="spec"><strong>${area}m²</strong>Área</div></div><a href="https://wa.me/${WA}?text=${msg}" target="_blank" class="card-cta" onclick="event.stopPropagation()">📱 Quiero información</a></div></div>`}
-function render(data){
-  const el=document.getElementById('main-content');
-  const props=data.content||data.properties||[];
-  if(!props.length){el.innerHTML='<div class="empty"><strong>Sin resultados</strong>Prueba con otros filtros.</div>';document.getElementById('total-count').textContent='0';document.getElementById('pagination').innerHTML='';return}
-  const total=data.pagination?.total||props.length;
-  const limit=data.pagination?.limit||50;
-  totalPages=Math.ceil(total/limit);
-  document.getElementById('total-count').textContent=total.toLocaleString();
-  el.innerHTML=`<div class="grid">${props.map(card).join('')}</div>`;
-  renderPagination();
-}
-function renderPagination(){
-  if(totalPages<=1){document.getElementById('pagination').innerHTML='';return}
-  let html='';
-  if(currentPage>1)html+=`<button class="page-btn" onclick="goPage(${currentPage-1})">← Anterior</button>`;
-  for(let i=Math.max(1,currentPage-2);i<=Math.min(totalPages,currentPage+2);i++)html+=`<button class="page-btn ${i===currentPage?'active':''}" onclick="goPage(${i})">${i}</button>`;
-  if(currentPage<totalPages)html+=`<button class="page-btn" onclick="goPage(${currentPage+1})">Siguiente →</button>`;
-  document.getElementById('pagination').innerHTML=html;
-}
-function goPage(pg){currentPage=pg;fetchProperties(currentPage);window.scrollTo(0,0)}
-function getFilters(){return{operation:document.getElementById('f-operation').value,city:document.getElementById('f-city').value,type:document.getElementById('f-type').value,bedrooms:document.getElementById('f-bedrooms').value,min_price:document.getElementById('f-min').value,max_price:document.getElementById('f-max').value}}
-function search(){currentPage=1;currentParams=getFilters();fetchProperties(1)}
-function clearFilters(){document.getElementById('f-operation').value='all';document.getElementById('f-city').value='all';document.getElementById('f-type').value='all';document.getElementById('f-bedrooms').value='';document.getElementById('f-min').value='';document.getElementById('f-max').value='';currentPage=1;currentParams={};fetchProperties(1)}
-async function fetchProperties(page){
-  document.getElementById('main-content').innerHTML='<div class="loading"><div class="spinner"></div><p>Cargando propiedades...</p></div>';
-  const params=currentParams;
-  let url=`/.netlify/functions/properties?page=${page}&limit=50`;
-  if(params.operation&&params.operation!=='all')url+=`&operation=${params.operation}`;
-  if(params.city&&params.city!=='all')url+=`&city=${encodeURIComponent(params.city)}`;
-  if(params.type&&params.type!=='all')url+=`&type=${encodeURIComponent(params.type)}`;
-  if(params.bedrooms)url+=`&bedrooms=${params.bedrooms}`;
-  if(params.min_price)url+=`&min_price=${params.min_price}`;
-  if(params.max_price)url+=`&max_price=${params.max_price}`;
-  try{const r=await fetch(url);const d=await r.json();render(d)}
-  catch(e){document.getElementById('main-content').innerHTML=`<div class="error-msg"><strong>Error cargando propiedades</strong><a href="https://wa.me/${WA}" target="_blank" style="color:var(--gold);display:block;margin-top:12px">📱 Contáctanos al 33 44 44 14 44</a></div>`}
-}
-fetchProperties(1);
-</script>
-</body>
-</html>
+:root{--cobalto:#1D3A8A;--ocre:#E0A43A;--bermellon:#D8452F;--rosa:#E9B7A6;--crema:#F6F0E6;--tinta:#1A1A1A;--suave:#5C5751;--wa:#1FA855;--serif:"DM Serif Display",Georgia,serif;--sans:"Outfit",system-ui,sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--crema);color:var(--tinta);font:400 18px/1.6 var(--sans)}a{color:inherit}:focus-visible{outline:3px solid var(--bermellon);outline-offset:3px}
+.w{max-width:1160px;margin:0 auto;padding:0 22px}h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.02;margin:0}h2{font-size:clamp(2.2rem,5vw,3.6rem)}
+em{font-style:italic;color:var(--bermellon)}
+.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:15px 26px;font-weight:700;text-decoration:none}
+.b1{background:var(--bermellon);color:#fff}.b2{background:var(--cobalto);color:#fff}.bw{background:var(--wa);color:#fff}
+.top{position:sticky;top:0;z-index:9;background:rgba(246,240,230,.94);backdrop-filter:blur(6px);border-bottom:1px solid #E4DACB}
+.top .w{display:flex;justify-content:space-between;align-items:center;height:64px}.logo{font-family:var(--serif);font-size:1.35rem;text-decoration:none}
+.logo span{color:var(--bermellon)}.top nav{display:flex;gap:22px;font-size:.98rem}.top nav a{text-decoration:none}@media(max-width:860px){.top nav{display:none}}
+/* portada: composición de formas */
+.hero{position:relative;overflow:hidden;padding:80px 0 90px}
+.hero .w{position:relative;z-index:2;display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center}
+.hero h1{font-size:clamp(2.8rem,6.4vw,5.4rem)}.hero p{font-size:1.2rem;color:var(--suave);max-width:30em;margin:22px 0 30px}
+.acc{display:flex;gap:12px;flex-wrap:wrap}
+.comp{position:relative;aspect-ratio:1;max-width:480px;justify-self:end;width:100%}
+.comp span{position:absolute;display:block}
+.s1{inset:6% 22% 30% 4%;background:var(--cobalto);border-radius:50%}
+.s2{inset:38% 2% 4% 40%;background:var(--ocre);border-radius:50% 50% 50% 0}
+.s3{inset:2% 4% 58% 56%;background:var(--bermellon);border-radius:50%}
+.s4{inset:52% 46% 10% 10%;background:var(--rosa);border-radius:0 50% 50% 50%}
+.s5{inset:26% 30% 34% 26%;border:3px solid var(--tinta);border-radius:50%}
+.s6{left:58%;top:48%;width:18%;aspect-ratio:1;background:var(--crema);border-radius:50%;border:3px solid var(--tinta)}
+@media(max-width:860px){.hero .w{grid-template-columns:1fr}.comp{max-width:320px;justify-self:center}}
+.sec{padding:90px 0}.intro{color:var(--suave);font-size:1.15rem;max-width:42em;margin-top:16px}
+/* estilos de vida en círculos */
+.vidas{display:grid;grid-template-columns:repeat(3,1fr);gap:34px 26px;margin-top:50px}
+.vida{text-align:center;text-decoration:none}
+.circ{aspect-ratio:1;border-radius:50%;display:flex;align-items:center;justify-content:center;padding:18%;color:#fff;font-family:var(--serif);font-size:clamp(1.3rem,2.4vw,1.8rem);line-height:1.1;transition:transform .2s}
+.vida:hover .circ{transform:scale(1.03) rotate(-2deg)}
+.vida p{color:var(--suave);font-size:1rem;margin:14px auto 0;max-width:18em}
+.c1{background:var(--cobalto)}.c2{background:var(--ocre);color:var(--tinta)}.c3{background:var(--bermellon)}.c4{background:var(--rosa);color:var(--tinta)}.c5{background:var(--tinta)}.c6{background:linear-gradient(135deg,var(--cobalto) 50%,var(--ocre) 50%)}
+@media(max-width:760px){.vidas{grid-template-columns:1fr 1fr}}
+/* personas */
+.azul{background:var(--cobalto);color:#fff}.azul .intro{color:#C9D3F0}
+.equipo{display:grid;grid-template-columns:repeat(3,1fr);gap:40px 28px;margin-top:50px}
+.pers{display:flex;gap:18px;align-items:center}
+.ini{flex:0 0 96px;height:96px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:2.2rem;color:var(--tinta)}
+.pers h3{font-size:1.5rem}.pers p{margin:4px 0 0;color:#C9D3F0;font-size:.98rem}
+@media(max-width:900px){.equipo{grid-template-columns:1fr 1fr}}@media(max-width:560px){.equipo{grid-template-columns:1fr}}
+/* método */
+.metodo{counter-reset:p;display:grid;grid-template-columns:repeat(5,1fr);gap:18px;margin-top:46px;list-style:none;padding:0}
+.metodo li{counter-increment:p;border-top:3px solid var(--tinta);padding-top:14px}
+.metodo li::before{content:counter(p);display:inline-flex;width:44px;height:44px;border-radius:50%;background:var(--bermellon);color:#fff;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.4rem;margin-bottom:12px}
+.metodo b{display:block;font-size:1.1rem;margin-bottom:4px}.metodo span{color:var(--suave);font-size:.97rem}
+@media(max-width:900px){.metodo{grid-template-columns:1fr 1fr}}
+/* propietarios */
+.prop{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.prop ul{list-style:none;padding:0;margin:0}.prop li{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid #E4DACB}
+.prop li::before{content:"";flex:0 0 14px;height:14px;border-radius:50%;background:var(--ocre);margin-top:7px}
+.marco{aspect-ratio:4/5;border-radius:50% 50% 12px 12px;background:var(--bermellon);display:flex;align-items:flex-end;padding:34px;color:#fff;font-family:var(--serif);font-size:clamp(1.6rem,3vw,2.3rem);line-height:1.1}
+@media(max-width:860px){.prop{grid-template-columns:1fr}.marco{max-width:380px}}
+.cred{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}.cred span{border:2px solid var(--tinta);border-radius:999px;padding:9px 16px;font-weight:500}
+.cierre{text-align:center;background:var(--tinta);color:#fff}.cierre p{color:#BDB6AC;max-width:34em;margin:14px auto 28px}
+footer{background:#111;color:#9C958B;font-size:.88rem;padding:36px 0 100px;line-height:1.6}footer b{color:#fff}
+.flot{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));display:none;z-index:10}.flot .btn{width:100%}@media(max-width:760px){.flot{display:block}}
+</style></head><body>
+<header class="top"><div class="w"><a class="logo" href="#">Los Profesionales <span>Inmobiliarios</span></a>
+<nav><a href="#vivir">¿Cómo quieres vivir?</a><a href="#personas">Las personas</a><a href="#metodo">Cómo trabajamos</a><a href="#propietarios">Vender o rentar</a></nav>
+<a class="btn bw" style="padding:9px 18px" href="https://wa.me/523333777337?text=Hola%2C%20vengo%20de%20losprofesionalesinmobiliarios.com" target="_blank" rel="noopener">WhatsApp</a></div></header>
+<main>
+<section class="hero"><div class="w"><div>
+<h1>Detrás de cada casa hay una historia. Detrás de cada buena decisión, <em>hay profesionales.</em></h1>
+<p>Comprar, vender o rentar tu casa es de las decisiones más importantes de tu vida. No tienes que tomarla solo: te acompañamos personas certificadas, con contratos claros y de principio a fin.</p>
+<div class="acc"><a class="btn b1" href="#vivir">Ayúdame a encontrar mi hogar</a><a class="btn b2" href="#propietarios">Quiero vender o rentar</a></div></div>
+<div class="comp" aria-hidden="true"><span class="s1"></span><span class="s2"></span><span class="s3"></span><span class="s4"></span><span class="s5"></span><span class="s6"></span></div></div></section>
+
+<section class="sec" id="vivir" style="padding-top:30px"><div class="w"><h2>¿Cómo <em>quieres</em> vivir?</h2>
+<p class="intro">No empieces por el número de recámaras. Empieza por la vida que quieres. Elige la tuya y te proponemos opciones que la hagan posible.</p>
+<div class="vidas">
+<a class="vida" href="https://wa.me/523333777337?text=Quiero%20despertar%20con%20vista.%20Vengo%20de%20losprofesionalesinmobiliarios.com" target="_blank" rel="noopener"><div class="circ c1">Quiero despertar con vista</div><p>Departamentos en lo alto, con terraza y ciudad a tus pies.</p></a>
+<a class="vida" href="https://wa.me/523333777337?text=Quiero%20que%20mis%20hijos%20jueguen%20afuera.%20Vengo%20de%20losprofesionalesinmobiliarios.com" target="_blank" rel="noopener"><div class="circ c2">Quiero que mis hijos jueguen afuera</div><p>Casas en coto, con parques y seguridad para tu familia.</p></a>
+<a class="vida" href="https://wa.me/523333777337?text=Quiero%20caminar%20a%20todo.%20Vengo%20de%20losprofesionalesinmobiliarios.com" target="_blank" rel="noopener"><div class="circ c3">Quiero caminar a todo</div><p>Vivir cerca del trabajo, la escuela, el café y el parque.</p></a>
+<a class="vida" href="https://wa.me/523333777337?text=Quiero%20mi%20primera%20casa.%20Vengo%20de%20losprofesionalesinmobiliarios.com" target="_blank" rel="noopener"><div class="circ c4">Quiero mi primera casa</div><p>Te ayudamos a usar tu Infonavit y a elegir sin miedo.</p></a>
+<a class="vida" href="https://wa.me/523333777337?text=Quiero%20que%20mi%20dinero%20crezca.%20Vengo%20de%20losprofesionalesinmobiliarios.com" target="_blank" rel="noopener"><div class="circ c5">Quiero que mi dinero crezca</div><p>Propiedades para rentar o para proteger tu patrimonio.</p></a>
+<a class="vida" href="https://wa.me/523333777337?text=Quiero%20construir%20a%20mi%20manera.%20Vengo%20de%20losprofesionalesinmobiliarios.com" target="_blank" rel="noopener"><div class="circ c6">Quiero construir a mi manera</div><p>Terrenos para la casa que solo existe en tu cabeza.</p></a>
+</div><p class="intro" style="margin-top:40px">¿Prefieres buscar por tu cuenta? Explora más de 10,000 propiedades en <a href="https://acierta.pro">acierta.pro</a>.</p></div></section>
+
+<section class="sec azul" id="personas"><div class="w"><h2>Las personas detrás de tu decisión</h2>
+<p class="intro">Somos Acierta Max: un equipo que conoce Guadalajara, que te dice la verdad aunque no sea lo que quieres oír, y que no te suelta hasta que tienes tus llaves.</p>
+<div class="equipo">
+<div class="pers"><div class="ini" style="background:var(--ocre)">JM</div><div><h3>Javier Mendoza</h3><p>Director General. Más de 20 años en bienes raíces, certificado por CONOCER en comercialización de inmuebles y con diploma en derecho inmobiliario.</p></div></div>
+<div class="pers"><div class="ini" style="background:var(--rosa)">B</div><div><h3>Betty</h3><p>Especialista en crédito. Te calcula tu Infonavit, Cofinavit o crédito bancario sin costo.</p></div></div>
+<div class="pers"><div class="ini" style="background:var(--crema)">UM</div><div><h3>Ubaldo Méndez</h3><p>Asesor inmobiliario.</p></div></div>
+<div class="pers"><div class="ini" style="background:var(--bermellon);color:#fff">LE</div><div><h3>Leticia Enríquez</h3><p>Asesora inmobiliaria.</p></div></div>
+<div class="pers"><div class="ini" style="background:var(--ocre)">GN</div><div><h3>Gloria Navarro</h3><p>Asesora inmobiliaria.</p></div></div>
+<div class="pers"><div class="ini" style="background:var(--rosa)">PV</div><div><h3>Paola Valencia</h3><p>Asesora inmobiliaria.</p></div></div>
+</div></div></section>
+
+<section class="sec" id="metodo"><div class="w"><h2>Cómo trabajamos</h2><p class="intro">Un método simple, para que sepas siempre en qué paso vas y qué sigue.</p>
+<ol class="metodo">
+<li><b>Te escuchamos</b><span>Qué buscas, para qué y con qué presupuesto.</span></li>
+<li><b>Te mostramos opciones reales</b><span>Comparadas con datos, no con prisa.</span></li>
+<li><b>Revisamos antes de firmar</b><span>Con Acierta Verifica: documentos y estado del inmueble.</span></li>
+<li><b>Todo por escrito</b><span>Contratos claros, conforme a Profeco y a la NOM-247.</span></li>
+<li><b>Te acompañamos después</b><span>Escrituración, mudanza y servicio posventa.</span></li>
+</ol></div></section>
+
+<section class="sec" id="propietarios" style="padding-top:20px"><div class="w prop">
+<div><h2>Tu casa merece más que un <em>anuncio</em></h2>
+<p class="intro">Si vas a vender o rentar, no basta con subir fotos a un portal. Merece una estrategia y alguien que la defienda.</p>
+<ul><li>Opinión de valor gratis, con precios reales de tu colonia.</li><li>Difusión en acierta.pro, inmobiliaria.pro y las bolsas de AMPI y EasyBroker.</li><li>Para propiedades destacadas, un sitio propio, como los de Bella Vittoria o Torre Élevé.</li><li>Atención a interesados las 24 horas por WhatsApp, y un asesor que les da seguimiento.</li><li>Contrato de exclusiva claro, registrado conforme a Profeco.</li></ul>
+<div class="acc" style="margin-top:26px"><a class="btn b1" href="https://acierta.pro/valor.html">¿Cuánto vale mi casa?</a><a class="btn bw" href="https://wa.me/523333777337?text=VALOR%20%C2%B7%20Quiero%20vender%20o%20rentar%20mi%20propiedad.%20Vengo%20de%20losprofesionalesinmobiliarios.com" target="_blank" rel="noopener">Hablar con un asesor</a></div>
+<div class="cred"><span>AMPI Guadalajara</span><span>NAR</span><span>Certificación CONOCER</span><span>Contratos Profeco</span><span>Acierta Verifica</span></div></div>
+<div class="marco">"Vender tu casa también es despedirte de una etapa. Hagámoslo bien."</div></div></section>
+
+<section class="sec cierre"><div class="w"><h2>Hablemos de tu próxima historia</h2><p>Escríbenos por WhatsApp a cualquier hora. Nuestros asesores te atienden todos los días de 9:00 a 19:00.</p>
+<a class="btn bw" href="https://wa.me/523333777337?text=Hola%2C%20vengo%20de%20losprofesionalesinmobiliarios.com" target="_blank" rel="noopener">Escríbenos</a></div></section>
+</main>
+<footer><div class="w"><p><b>Acierta Max, S.A. de C.V.</b> · Los Profesionales Inmobiliarios · Miembros de AMPI Guadalajara y de la National Association of REALTORS®. WhatsApp 33 3377 7337 · <a href="https://acierta.pro">acierta.pro</a> · <a href="https://acierta.pro/aviso-privacidad.html">Aviso de privacidad</a></p></div></footer>
+<div class="flot"><a class="btn bw" href="https://wa.me/523333777337?text=Hola%2C%20vengo%20de%20losprofesionalesinmobiliarios.com" target="_blank" rel="noopener">Escríbenos por WhatsApp</a></div>
+</body></html>
