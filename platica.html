@@ -58,7 +58,7 @@ main{flex:1;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(320px,.9f
 .chat{flex:1;overflow-y:auto;padding:6px 14px 12px;min-height:220px}
 .msg{max-width:88%;padding:10px 13px;border-radius:14px;margin:7px 0;line-height:1.42;font-size:.95rem;white-space:pre-wrap}
 .msg.max{background:#fff;border:1px solid #e7dfd0;border-top-left-radius:4px}
-.msg.yo{background:var(--cobalto);color:#fff;margin-left:auto;border-top-right-radius:4px}
+.msg.cli{background:var(--cobalto);color:#fff;margin-left:auto;border-top-right-radius:4px}
 .msg small{display:block;font-size:.7rem;opacity:.65;margin-bottom:2px;font-weight:700;letter-spacing:.04em}
 .opciones{display:grid;gap:10px;margin:8px 0}
 .op{display:grid;grid-template-columns:92px 1fr;gap:10px;background:#fff;border:1px solid #e7dfd0;border-radius:14px;overflow:hidden}
@@ -193,7 +193,7 @@ main{flex:1;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(320px,.9f
 
   // ---------- Chat ----------
   function burbuja(rol, texto) {
-    var d = document.createElement("div"); d.className = "msg " + (rol === "max" ? "max" : "yo");
+    var d = document.createElement("div"); d.className = "msg " + (rol === "max" ? "max" : "cli");
     var q = document.createElement("small"); q.textContent = rol === "max" ? "MAX" : "TÚ";
     d.appendChild(q); d.appendChild(document.createTextNode(texto));
     chat.appendChild(d); chat.scrollTop = chat.scrollHeight;
@@ -234,7 +234,7 @@ main{flex:1;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(320px,.9f
   if ("speechSynthesis" in window) { elegirVoz(); speechSynthesis.onvoiceschanged = elegirVoz; }
   function decir(texto, alTerminar) {
     subt.textContent = texto; subt.style.display = "block";
-    if (!vozActiva || !("speechSynthesis" in window)) { setTimeout(function () { subt.style.display = "none"; alTerminar && alTerminar(); }, 400); return; }
+    if (!vozActiva || !("speechSynthesis" in window)) { estado.textContent = "Tu turno"; setTimeout(function () { subt.style.display = "none"; alTerminar && alTerminar(); }, 400); return; }
     speechSynthesis.cancel();
     var u = new SpeechSynthesisUtterance(texto);
     u.lang = (voz && voz.lang) || "es-MX"; if (voz) u.voice = voz; u.rate = 1.03; u.pitch = 1;
