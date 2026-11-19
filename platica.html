@@ -59,6 +59,7 @@ main{flex:1;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(320px,.9f
 .msg{max-width:88%;padding:10px 13px;border-radius:14px;margin:7px 0;line-height:1.42;font-size:.95rem;white-space:pre-wrap}
 .msg.max{background:#fff;border:1px solid #e7dfd0;border-top-left-radius:4px}
 .msg.cli{background:var(--cobalto);color:#fff;margin-left:auto;border-top-right-radius:4px}
+.vermapa{display:inline-block;margin:4px 0 10px;padding:8px 14px;border-radius:999px;background:var(--ocre);color:#1b1b1b;font-weight:700;font-size:.85rem;text-decoration:none}
 .msg small{display:block;font-size:.7rem;opacity:.65;margin-bottom:2px;font-weight:700;letter-spacing:.04em}
 .opciones{display:grid;gap:10px;margin:8px 0}
 .op{display:grid;grid-template-columns:92px 1fr;gap:10px;background:#fff;border:1px solid #e7dfd0;border-radius:14px;overflow:hidden}
@@ -285,6 +286,11 @@ main{flex:1;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(320px,.9f
       if (!d.ok) { estado.textContent = d.error || "Algo falló. Intenta de nuevo."; burbuja("max", d.error || "Se me fue la señal. ¿Me lo repites?"); return; }
       burbuja("max", d.respuesta); historial.push({ rol: "max", texto: d.respuesta }); guardar();
       if (d.opciones && d.opciones.length) tarjetas(d.opciones);
+      if (d.mapa) {
+        var lm = document.createElement("a"); lm.className = "vermapa"; lm.href = d.mapa; lm.target = "_blank"; lm.rel = "noopener";
+        lm.textContent = "Ver todas en el mapa (" + d.total_coincidencias + ")";
+        chat.appendChild(lm); chat.scrollTop = chat.scrollHeight;
+      }
       elegidas = d.elegidas || elegidas;
       decir(d.respuesta, function () {
         if (d.pedir_contacto) abrirModal(); else if (manosLibres) escuchar();
