@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Platica con MAX · Los Profesionales Inmobiliarios</title>
+<meta name="description" content="Cuéntale a MAX, por voz o por escrito, lo que estás buscando. Te hace las preguntas correctas, te muestra opciones reales y te asigna un coach de Acierta Max.">
+<link rel="canonical" href="https://losprofesionalesinmobiliarios.com/platica.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--cobalto:#1D3A8A;--ocre:#E0A43A;--bermellon:#D8452F;--rosa:#E9B7A6;--crema:#F6F0E6;--tinta:#1A1A1A;--suave:#5C5751;--wa:#1FA855;--noche:#0F1B3D}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{font-family:Outfit,system-ui,sans-serif;background:var(--noche);color:#fff;display:flex;flex-direction:column;min-height:100dvh}
+a{color:inherit}
+button{font-family:inherit;cursor:pointer}
+.barra{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 18px;background:rgba(0,0,0,.25)}
+.logo{font-family:"DM Serif Display",serif;font-size:1.05rem;text-decoration:none;white-space:nowrap}
+.logo span{color:var(--ocre);font-style:italic}
+.envivo{display:flex;align-items:center;gap:8px;font-size:.85rem;color:#cfd6ea}
+.punto{width:9px;height:9px;border-radius:50%;background:var(--bermellon);box-shadow:0 0 0 0 rgba(216,69,47,.7);animation:latido 1.6s infinite}
+@keyframes latido{70%{box-shadow:0 0 0 9px rgba(216,69,47,0)}100%{box-shadow:0 0 0 0 rgba(216,69,47,0)}}
+main{flex:1;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(320px,.9fr);gap:14px;padding:14px;min-height:0}
+@media (max-width:860px){main{grid-template-columns:1fr;grid-template-rows:auto 1fr}}
+.escenario{position:relative;border-radius:22px;background:radial-gradient(120% 90% at 30% 20%,#23439b 0%,var(--cobalto) 45%,#142a66 100%);overflow:hidden;min-height:360px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+@media (max-width:860px){.escenario{min-height:300px}}
+.avatar{position:relative;width:min(52vw,250px);aspect-ratio:1}
+.aro{position:absolute;inset:0;border-radius:50%;border:2px solid rgba(255,255,255,.18);transition:transform .15s ease,opacity .3s}
+.aro.a2{inset:-14%;border-color:rgba(224,164,58,.35)}
+.aro.a3{inset:-28%;border-color:rgba(233,183,166,.22)}
+.hablando .aro{animation:onda 1.1s ease-in-out infinite}
+.hablando .aro.a2{animation-delay:.18s}.hablando .aro.a3{animation-delay:.36s}
+@keyframes onda{0%,100%{transform:scale(1);opacity:.9}50%{transform:scale(1.06);opacity:.5}}
+.cara{position:absolute;inset:8%;border-radius:50%;background:conic-gradient(from 200deg,var(--ocre),var(--bermellon),var(--rosa),var(--ocre));display:flex;align-items:center;justify-content:center;box-shadow:0 18px 50px rgba(0,0,0,.35)}
+.cara::after{content:"";position:absolute;inset:7%;border-radius:50%;background:var(--crema)}
+.cara b{position:relative;z-index:1;font-family:"DM Serif Display",serif;font-size:clamp(2.4rem,9vw,4.2rem);color:var(--cobalto);letter-spacing:.02em}
+.escuchando .cara{box-shadow:0 0 0 6px rgba(31,168,85,.55),0 18px 50px rgba(0,0,0,.35)}
+.etiqueta{position:absolute;left:16px;bottom:14px;background:rgba(0,0,0,.35);padding:6px 12px;border-radius:999px;font-size:.85rem}
+.estado{margin-top:26px;font-size:.95rem;color:#dfe5f5;min-height:1.3em;text-align:center;padding:0 16px}
+.subtitulo{position:absolute;left:50%;transform:translateX(-50%);bottom:56px;width:min(92%,640px);text-align:center;font-size:1.05rem;line-height:1.4;background:rgba(0,0,0,.45);padding:10px 14px;border-radius:12px;display:none}
+.yo{position:absolute;right:14px;top:14px;width:120px;aspect-ratio:4/3;border-radius:14px;background:#0b1430;border:1px solid rgba(255,255,255,.15);overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:.8rem;color:#9fb0d8}
+.yo video{width:100%;height:100%;object-fit:cover;transform:scaleX(-1)}
+.inicio{position:absolute;inset:0;background:rgba(15,27,61,.92);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;gap:14px;z-index:5}
+.inicio h1{font-family:"DM Serif Display",serif;font-weight:400;font-size:clamp(1.7rem,4.5vw,2.6rem);margin:0;line-height:1.1}
+.inicio h1 em{color:var(--ocre)}
+.inicio p{margin:0;max-width:520px;color:#d5dcf0;line-height:1.5}
+.btn{border:0;border-radius:999px;padding:14px 26px;font-size:1rem;font-weight:700}
+.btn.ocre{background:var(--ocre);color:var(--tinta)}
+.btn.linea{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.5)}
+.btn.wa{background:var(--wa);color:#fff}
+.btn:disabled{opacity:.55;cursor:not-allowed}
+.nota{font-size:.78rem;color:#aab6d6;max-width:520px}
+.nota a{color:#fff}
+.panel{background:var(--crema);color:var(--tinta);border-radius:22px;display:flex;flex-direction:column;min-height:0;overflow:hidden}
+.panel h2{font-family:"DM Serif Display",serif;font-weight:400;font-size:1.15rem;margin:0;padding:14px 18px 8px}
+.chat{flex:1;overflow-y:auto;padding:6px 14px 12px;min-height:220px}
+.msg{max-width:88%;padding:10px 13px;border-radius:14px;margin:7px 0;line-height:1.42;font-size:.95rem;white-space:pre-wrap}
+.msg.max{background:#fff;border:1px solid #e7dfd0;border-top-left-radius:4px}
+.msg.yo{background:var(--cobalto);color:#fff;margin-left:auto;border-top-right-radius:4px}
+.msg small{display:block;font-size:.7rem;opacity:.65;margin-bottom:2px;font-weight:700;letter-spacing:.04em}
+.opciones{display:grid;gap:10px;margin:8px 0}
+.op{display:grid;grid-template-columns:92px 1fr;gap:10px;background:#fff;border:1px solid #e7dfd0;border-radius:14px;overflow:hidden}
+.op img{width:92px;height:100%;min-height:92px;object-fit:cover;background:#ddd}
+.op div{padding:8px 10px 10px 0;font-size:.85rem;line-height:1.35}
+.op b{display:block;font-size:.92rem}
+.op .precio{color:var(--bermellon);font-weight:700}
+.op .acc{display:flex;gap:8px;margin-top:6px;flex-wrap:wrap}
+.op .acc button,.op .acc a{font-size:.78rem;border-radius:999px;padding:6px 10px;border:1px solid var(--cobalto);background:#fff;color:var(--cobalto);text-decoration:none;font-weight:700}
+.op .acc button.si{background:var(--cobalto);color:#fff}
+.controles{display:flex;align-items:center;gap:8px;padding:10px 12px;border-top:1px solid #e7dfd0;background:#fbf7ef}
+.controles input{flex:1;min-width:0;border:1px solid #d8cdb9;border-radius:999px;padding:12px 16px;font-size:1rem;font-family:inherit;background:#fff}
+.redondo{width:48px;height:48px;border-radius:50%;border:0;display:flex;align-items:center;justify-content:center;flex:none}
+.redondo svg{width:22px;height:22px}
+.mic{background:var(--bermellon);color:#fff}
+.mic.activo{background:var(--wa);animation:latido 1.6s infinite}
+.enviar{background:var(--cobalto);color:#fff}
+.bajo{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 14px 12px;background:#fbf7ef;font-size:.82rem;color:var(--suave);flex-wrap:wrap}
+.bajo button{background:none;border:0;color:var(--cobalto);font-weight:700;font-size:.85rem;padding:4px 0}
+.terminar{background:var(--bermellon)!important;color:#fff!important;border-radius:999px;padding:8px 14px!important}
+.modal{position:fixed;inset:0;background:rgba(10,16,36,.72);display:none;align-items:center;justify-content:center;padding:16px;z-index:20}
+.modal.abierto{display:flex}
+.caja{background:var(--crema);color:var(--tinta);border-radius:20px;max-width:440px;width:100%;padding:22px}
+.caja h3{font-family:"DM Serif Display",serif;font-weight:400;font-size:1.4rem;margin:0 0 6px}
+.caja p{margin:0 0 12px;color:var(--suave);line-height:1.45;font-size:.95rem}
+.caja label{display:block;font-size:.85rem;font-weight:700;margin:10px 0 4px}
+.caja input[type=text],.caja input[type=tel]{width:100%;border:1px solid #d8cdb9;border-radius:12px;padding:12px;font-size:1rem;font-family:inherit}
+.check{display:flex;gap:8px;align-items:flex-start;font-size:.85rem;margin:12px 0;color:var(--suave)}
+.caja .fila{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.error{color:var(--bermellon);font-size:.85rem;min-height:1.2em;margin-top:6px}
+.oculto{display:none!important}
+</style>
+</head>
+<body>
+<header class="barra">
+  <a class="logo" href="/">Los Profesionales <span>Inmobiliarios</span></a>
+  <div class="envivo"><span class="punto"></span><span id="reloj">Platica con MAX</span></div>
+</header>
+
+<main>
+  <section class="escenario" id="escenario" aria-label="Videollamada con MAX">
+    <div class="yo" id="yo">Tú</div>
+    <div class="avatar" id="avatar" aria-hidden="true">
+      <div class="aro a3"></div><div class="aro a2"></div><div class="aro"></div>
+      <div class="cara"><b>MAX</b></div>
+    </div>
+    <div class="estado" id="estado">Listo para platicar</div>
+    <div class="subtitulo" id="subtitulo"></div>
+    <div class="etiqueta">MAX · asistente con IA de Acierta Max</div>
+
+    <div class="inicio" id="inicio">
+      <h1>Platícale a MAX<br><em>lo que estás buscando</em></h1>
+      <p>Háblale o escríbele como a un amigo que sabe de bienes raíces. MAX te hace las preguntas correctas, te muestra opciones reales y al final te asigna un coach de Acierta Max.</p>
+      <div class="fila" style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center">
+        <button class="btn ocre" id="btnVoz">🎙️ Platicar con voz</button>
+        <button class="btn linea" id="btnTexto">Prefiero escribir</button>
+      </div>
+      <p class="nota">MAX es un asistente con inteligencia artificial; detrás hay coaches humanos que atienden de 9:00 a 19:00. Guardamos la plática solo para darte servicio. <a href="https://acierta.pro/aviso-privacidad.html" target="_blank" rel="noopener">Aviso de privacidad</a>.</p>
+    </div>
+  </section>
+
+  <section class="panel" aria-label="Transcripción">
+    <h2>La plática</h2>
+    <div class="chat" id="chat" aria-live="polite"></div>
+    <form class="controles" id="form" autocomplete="off">
+      <button type="button" class="redondo mic" id="btnMic" title="Hablar" aria-label="Hablar">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 15a3 3 0 0 0 3-3V6a3 3 0 1 0-6 0v6a3 3 0 0 0 3 3Zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21h2v-2.08A7 7 0 0 0 19 12h-2Z"/></svg>
+      </button>
+      <input id="entrada" type="text" placeholder="Escribe aquí o toca el micrófono" maxlength="900" aria-label="Tu mensaje">
+      <button type="submit" class="redondo enviar" title="Enviar" aria-label="Enviar">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 20.5 21 12 3 3.5v6.6L15 12 3 13.9z"/></svg>
+      </button>
+    </form>
+    <div class="bajo">
+      <button type="button" id="btnSonido">🔊 Voz de MAX: activada</button>
+      <button type="button" class="terminar" id="btnTerminar">Terminar y recibir mi resumen</button>
+    </div>
+  </section>
+</main>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mTitulo">
+  <div class="caja">
+    <div id="pasoDatos">
+      <h3 id="mTitulo">¿A dónde te mando tu resumen?</h3>
+      <p>Te enviamos por WhatsApp, a ti y a tu coach, el perfil y la transcripción completa de esta plática. En un día hábil te reportamos con el recorrido de las propiedades que elegiste, una vez confirmada la disponibilidad con cada propietario.</p>
+      <label for="mNombre">Tu nombre</label>
+      <input type="text" id="mNombre" maxlength="80" autocomplete="name">
+      <label for="mTel">Tu WhatsApp (10 dígitos)</label>
+      <input type="tel" id="mTel" maxlength="14" inputmode="numeric" autocomplete="tel-national">
+      <label class="check"><input type="checkbox" id="mOk"> Acepto que Acierta Max guarde esta plática y me contacte para darme servicio, conforme al <a href="https://acierta.pro/aviso-privacidad.html" target="_blank" rel="noopener">aviso de privacidad</a>.</label>
+      <div class="error" id="mError"></div>
+      <div class="fila">
+        <button class="btn wa" id="mConfirmar">Confirmar por WhatsApp</button>
+        <button class="btn linea" style="color:var(--tinta);border-color:#bfb4a0" id="mCancelar">Seguir platicando</button>
+      </div>
+    </div>
+    <div id="pasoEspera" class="oculto">
+      <h3>Envía el mensaje que se abrió</h3>
+      <p>Se abrió WhatsApp con un mensaje listo para MAX. Solo envíalo sin cambiarlo: así confirmamos que el número es tuyo. Esta pantalla avanza sola.</p>
+      <div class="fila"><a class="btn wa" id="mLiga" target="_blank" rel="noopener" style="text-decoration:none">Abrir WhatsApp de nuevo</a></div>
+      <div class="error" id="mError2"></div>
+    </div>
+    <div id="pasoListo" class="oculto">
+      <h3>¡Listo! Ya va en camino</h3>
+      <p>En unos segundos te llega por WhatsApp tu resumen y la transcripción. Tu coach ya tiene tu perfil y en un día hábil te reporta el recorrido de las propiedades elegidas.</p>
+      <div class="fila"><a class="btn ocre" href="/" style="text-decoration:none">Volver al inicio</a></div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  "use strict";
+  var API = "https://aciertamax-webhook.onrender.com/api/platica";
+  var $ = function (id) { return document.getElementById(id); };
+  var chat = $("chat"), entrada = $("entrada"), estado = $("estado"), subt = $("subtitulo"), avatar = $("avatar");
+  var store = { get: function (k) { try { return sessionStorage.getItem(k); } catch (e) { return null; } },
+                set: function (k, v) { try { sessionStorage.setItem(k, v); } catch (e) {} } };
+  function nuevaSesion() {
+    var a = new Uint8Array(12); (window.crypto || window.msCrypto).getRandomValues(a);
+    return Array.prototype.map.call(a, function (b) { return ("0" + b.toString(16)).slice(-2); }).join("");
+  }
+  var sesion = store.get("platica_sesion") || nuevaSesion(); store.set("platica_sesion", sesion);
+  var historial = []; try { historial = JSON.parse(store.get("platica_hist") || "[]"); } catch (e) { historial = []; }
+  var vozActiva = true, manosLibres = false, ocupado = false, inicioTs = Date.now(), elegidas = [];
+
+  // ---------- Reloj de "llamada" ----------
+  setInterval(function () {
+    var s = Math.floor((Date.now() - inicioTs) / 1000);
+    $("reloj").textContent = "En plática con MAX · " + Math.floor(s / 60) + ":" + ("0" + (s % 60)).slice(-2);
+  }, 1000);
+
+  // ---------- Chat ----------
+  function burbuja(rol, texto) {
+    var d = document.createElement("div"); d.className = "msg " + (rol === "max" ? "max" : "yo");
+    var q = document.createElement("small"); q.textContent = rol === "max" ? "MAX" : "TÚ";
+    d.appendChild(q); d.appendChild(document.createTextNode(texto));
+    chat.appendChild(d); chat.scrollTop = chat.scrollHeight;
+  }
+  function tarjetas(ops) {
+    var cont = document.createElement("div"); cont.className = "opciones";
+    ops.forEach(function (o) {
+      var t = document.createElement("div"); t.className = "op";
+      var img = document.createElement("img"); img.alt = o.titulo; img.loading = "lazy"; img.src = o.foto;
+      var cuerpo = document.createElement("div");
+      var b = document.createElement("b"); b.textContent = o.titulo;
+      var p1 = document.createElement("span"); p1.className = "precio"; p1.textContent = o.precio_txt;
+      var info = [o.colonia || o.municipio, o.recamaras ? o.recamaras + " rec." : "", o.banos ? o.banos + " baños" : "", o.m2 ? Math.round(o.m2) + " m²" : ""].filter(Boolean).join(" · ");
+      var p2 = document.createElement("div"); p2.textContent = info + " · " + o.clave;
+      var acc = document.createElement("div"); acc.className = "acc";
+      var si = document.createElement("button"); si.type = "button"; si.className = "si"; si.textContent = "Me interesa";
+      si.onclick = function () { si.disabled = true; enviar("Me interesa la " + o.clave + " para el recorrido."); };
+      var ver = document.createElement("a"); ver.href = o.liga; ver.target = "_blank"; ver.rel = "noopener"; ver.textContent = "Ver ficha";
+      acc.appendChild(si); acc.appendChild(ver);
+      cuerpo.appendChild(b); cuerpo.appendChild(p1); cuerpo.appendChild(p2); cuerpo.appendChild(acc);
+      t.appendChild(img); t.appendChild(cuerpo); cont.appendChild(t);
+    });
+    chat.appendChild(cont); chat.scrollTop = chat.scrollHeight;
+  }
+  historial.forEach(function (m) { burbuja(m.rol, m.texto); });
+
+  // ---------- Voz de MAX (síntesis del navegador) ----------
+  var voz = null;
+  function elegirVoz() {
+    if (!("speechSynthesis" in window)) return;
+    var vs = speechSynthesis.getVoices();
+    var pref = ["es-MX", "es-US", "es-419", "es"];
+    for (var i = 0; i < pref.length && !voz; i++) {
+      voz = vs.filter(function (v) { return v.lang && v.lang.toLowerCase().indexOf(pref[i].toLowerCase()) === 0; })
+              .sort(function (a, b) { return (/google|natural|neural/i.test(b.name) ? 1 : 0) - (/google|natural|neural/i.test(a.name) ? 1 : 0); })[0] || null;
+    }
+  }
+  if ("speechSynthesis" in window) { elegirVoz(); speechSynthesis.onvoiceschanged = elegirVoz; }
+  function decir(texto, alTerminar) {
+    subt.textContent = texto; subt.style.display = "block";
+    if (!vozActiva || !("speechSynthesis" in window)) { setTimeout(function () { subt.style.display = "none"; alTerminar && alTerminar(); }, 400); return; }
+    speechSynthesis.cancel();
+    var u = new SpeechSynthesisUtterance(texto);
+    u.lang = (voz && voz.lang) || "es-MX"; if (voz) u.voice = voz; u.rate = 1.03; u.pitch = 1;
+    u.onstart = function () { avatar.classList.add("hablando"); estado.textContent = "MAX está hablando…"; };
+    u.onend = u.onerror = function () { avatar.classList.remove("hablando"); subt.style.display = "none"; estado.textContent = manosLibres ? "Te escucho…" : "Tu turno"; alTerminar && alTerminar(); };
+    speechSynthesis.speak(u);
+  }
+
+  // ---------- Escucha (reconocimiento de voz del navegador) ----------
+  var Rec = window.SpeechRecognition || window.webkitSpeechRecognition, rec = null, escuchando = false;
+  function escuchar() {
+    if (!Rec || ocupado || escuchando) return;
+    rec = new Rec(); rec.lang = "es-MX"; rec.interimResults = true; rec.continuous = false; rec.maxAlternatives = 1;
+    var final = "";
+    rec.onstart = function () { escuchando = true; avatar.classList.add("escuchando"); $("btnMic").classList.add("activo"); estado.textContent = "Te escucho…"; };
+    rec.onresult = function (e) {
+      var parcial = "";
+      for (var i = e.resultIndex; i < e.results.length; i++) {
+        if (e.results[i].isFinal) final += e.results[i][0].transcript; else parcial += e.results[i][0].transcript;
+      }
+      entrada.value = (final + " " + parcial).trim();
+    };
+    rec.onerror = function (e) { if (e.error === "not-allowed") { manosLibres = false; estado.textContent = "Activa el micrófono en tu navegador o escribe abajo."; } };
+    rec.onend = function () {
+      escuchando = false; avatar.classList.remove("escuchando"); $("btnMic").classList.remove("activo");
+      var t = (final || entrada.value).trim();
+      if (t) enviar(t); else if (manosLibres && !ocupado) setTimeout(escuchar, 300); else estado.textContent = "Tu turno";
+    };
+    try { rec.start(); } catch (e) {}
+  }
+  function callar() { if (rec && escuchando) { try { rec.stop(); } catch (e) {} } }
+
+  // ---------- Turnos con MAX ----------
+  function post(ruta, cuerpo) {
+    return fetch(API + ruta, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(cuerpo) })
+      .then(function (r) { return r.json().catch(function () { return { ok: false, error: "Sin respuesta del servidor." }; }); });
+  }
+  function guardar() { store.set("platica_hist", JSON.stringify(historial.slice(-80))); }
+  function enviar(texto) {
+    texto = (texto || "").trim();
+    if (ocupado) return;
+    if (texto) { burbuja("yo", texto); historial.push({ rol: "yo", texto: texto }); guardar(); }
+    entrada.value = ""; ocupado = true; callar();
+    if ("speechSynthesis" in window) speechSynthesis.cancel();
+    estado.textContent = "MAX está pensando…";
+    post("/turno", { sesion: sesion, texto: texto, historial: historial }).then(function (d) {
+      ocupado = false;
+      if (!d.ok) { estado.textContent = d.error || "Algo falló. Intenta de nuevo."; burbuja("max", d.error || "Se me fue la señal. ¿Me lo repites?"); return; }
+      burbuja("max", d.respuesta); historial.push({ rol: "max", texto: d.respuesta }); guardar();
+      if (d.opciones && d.opciones.length) tarjetas(d.opciones);
+      elegidas = d.elegidas || elegidas;
+      decir(d.respuesta, function () {
+        if (d.pedir_contacto) abrirModal(); else if (manosLibres) escuchar();
+      });
+    }).catch(function () { ocupado = false; estado.textContent = "Sin conexión. Revisa tu internet e intenta de nuevo."; });
+  }
+
+  // ---------- Arranque ----------
+  function arrancar(conVoz) {
+    $("inicio").classList.add("oculto");
+    manosLibres = conVoz && !!Rec; vozActiva = conVoz || vozActiva;
+    if (conVoz && !Rec) estado.textContent = "Tu navegador no reconoce voz; MAX te habla y tú le escribes.";
+    if (conVoz && navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+      // Cámara opcional para la sensación de videollamada: solo se ve en tu pantalla, no se envía.
+      navigator.mediaDevices.getUserMedia({ video: { width: 320, height: 240 }, audio: false }).then(function (s) {
+        var v = document.createElement("video"); v.autoplay = true; v.muted = true; v.playsInline = true; v.srcObject = s;
+        $("yo").textContent = ""; $("yo").appendChild(v);
+      }).catch(function () {});
+    }
+    if (!conVoz) entrada.focus();
+    if (!historial.length) enviar(""); else if (manosLibres) escuchar();
+  }
+  $("btnVoz").onclick = function () { arrancar(true); };
+  $("btnTexto").onclick = function () { vozActiva = false; $("btnSonido").textContent = "🔇 Voz de MAX: apagada"; arrancar(false); };
+  if (historial.length) $("inicio").classList.add("oculto");
+
+  $("form").addEventListener("submit", function (e) { e.preventDefault(); if (entrada.value.trim()) enviar(entrada.value); });
+  $("btnMic").onclick = function () {
+    if (!Rec) { estado.textContent = "Tu navegador no reconoce voz. Prueba con Chrome o escribe abajo."; return; }
+    if (escuchando) { manosLibres = false; callar(); } else { manosLibres = true; if ("speechSynthesis" in window) speechSynthesis.cancel(); escuchar(); }
+  };
+  $("btnSonido").onclick = function () {
+    vozActiva = !vozActiva; if (!vozActiva && "speechSynthesis" in window) speechSynthesis.cancel();
+    this.textContent = vozActiva ? "🔊 Voz de MAX: activada" : "🔇 Voz de MAX: apagada";
+  };
+  $("btnTerminar").onclick = function () { abrirModal(); };
+
+  // ---------- Cierre: confirmar WhatsApp y mandar resumen ----------
+  var sondeo = null;
+  function abrirModal() { manosLibres = false; callar(); $("modal").classList.add("abierto"); $("mNombre").focus(); }
+  $("mCancelar").onclick = function () { $("modal").classList.remove("abierto"); };
+  $("mConfirmar").onclick = function () {
+    var nombre = $("mNombre").value.trim(), tel = $("mTel").value.replace(/\D/g, "").slice(-10);
+    if (nombre.length < 2) { $("mError").textContent = "Escribe tu nombre."; return; }
+    if (tel.length !== 10) { $("mError").textContent = "Escribe tu WhatsApp a 10 dígitos."; return; }
+    if (!$("mOk").checked) { $("mError").textContent = "Necesitamos tu consentimiento para mandarte el resumen."; return; }
+    $("mError").textContent = ""; this.disabled = true;
+    var btn = this;
+    post("/verificar", { whatsapp: tel }).then(function (d) {
+      btn.disabled = false;
+      if (!d.ok) { $("mError").textContent = d.error || "No se pudo iniciar la confirmación."; return; }
+      if (d.verificado) { cerrar(nombre, tel); return; }
+      $("mLiga").href = d.liga; window.open(d.liga, "_blank", "noopener");
+      $("pasoDatos").classList.add("oculto"); $("pasoEspera").classList.remove("oculto");
+      var intentos = 0;
+      sondeo = setInterval(function () {
+        if (++intentos > 150) { clearInterval(sondeo); $("mError2").textContent = "No vimos tu mensaje. Ábrelo de nuevo y envíalo sin cambiarlo."; return; }
+        post("/verificar", { whatsapp: tel, solo_estado: true }).then(function (e) {
+          if (e.ok && e.verificado) { clearInterval(sondeo); cerrar(nombre, tel); }
+        }).catch(function () {});
+      }, 3000);
+    }).catch(function () { btn.disabled = false; $("mError").textContent = "Sin conexión. Intenta de nuevo."; });
+  };
+  function cerrar(nombre, tel) {
+    post("/cerrar", { sesion: sesion, nombre: nombre, whatsapp: tel, consentimiento: true, historial: historial }).then(function (d) {
+      if (!d.ok) { $("pasoDatos").classList.remove("oculto"); $("pasoEspera").classList.add("oculto"); $("mError").textContent = d.error || "No se pudo enviar."; return; }
+      $("pasoDatos").classList.add("oculto"); $("pasoEspera").classList.add("oculto"); $("pasoListo").classList.remove("oculto");
+      decir("Listo, " + nombre.split(" ")[0] + ". Ya te mandé tu resumen por WhatsApp y tu coach ya tiene tu perfil. Gracias por platicar conmigo.");
+      try { sessionStorage.removeItem("platica_sesion"); sessionStorage.removeItem("platica_hist"); } catch (e) {}
+    });
+  }
+})();
+</script>
+</body>
+</html>
