@@ -36,6 +36,9 @@ main{flex:1;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(320px,.9f
 .cara{position:absolute;inset:8%;border-radius:50%;background:conic-gradient(from 200deg,var(--ocre),var(--bermellon),var(--rosa),var(--ocre));display:flex;align-items:center;justify-content:center;box-shadow:0 18px 50px rgba(0,0,0,.35)}
 .cara::after{content:"";position:absolute;inset:7%;border-radius:50%;background:var(--crema)}
 .cara b{position:relative;z-index:1;font-family:"DM Serif Display",serif;font-size:clamp(2.4rem,9vw,4.2rem);color:var(--cobalto);letter-spacing:.02em}
+.cara img{position:absolute;inset:6%;width:88%;height:88%;border-radius:50%;object-fit:cover;object-position:50% 18%;z-index:2}
+.hablando .cara img{animation:hablarMax .45s ease-in-out infinite alternate}
+@keyframes hablarMax{from{transform:scale(1)}to{transform:scale(1.025)}}
 .escuchando .cara{box-shadow:0 0 0 6px rgba(31,168,85,.55),0 18px 50px rgba(0,0,0,.35)}
 .etiqueta{position:absolute;left:16px;bottom:14px;background:rgba(0,0,0,.35);padding:6px 12px;border-radius:999px;font-size:.85rem}
 .estado{margin-top:26px;font-size:.95rem;color:#dfe5f5;min-height:1.3em;text-align:center;padding:0 16px}
@@ -104,7 +107,7 @@ main{flex:1;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(320px,.9f
     <div class="yo" id="yo">Tú</div>
     <div class="avatar" id="avatar" aria-hidden="true">
       <div class="aro a3"></div><div class="aro a2"></div><div class="aro"></div>
-      <div class="cara"><b>MAX</b></div>
+      <div class="cara"><b>MAX</b><img src="/max.webp" alt="MAX, asesor con IA de Acierta Max" onerror="this.remove()"></div>
     </div>
     <div class="estado" id="estado">Listo para platicar</div>
     <div class="subtitulo" id="subtitulo"></div>
@@ -223,14 +226,24 @@ main{flex:1;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(320px,.9f
 
   // ---------- Voz de MAX (síntesis del navegador) ----------
   var voz = null;
+  // MAX es hombre: se prefiere una voz masculina en español (Jorge/Raúl en Edge y Windows, Juan/Diego/Carlos en Apple).
+  var VOCES_H = /jorge|ra[uú]l|juan|diego|carlos|pablo|alvaro|álvaro|gerardo|liberto|enrique|jos[eé]|antonio|dario|darío|male|hombre|masculin/i;
+  var VOCES_M = /sabina|dalia|paulina|m[oó]nica|helena|laura|elvira|lupe|paloma|ximena|elena|female|mujer|google/i;
+  var vozMasculina = false;
   function elegirVoz() {
     if (!("speechSynthesis" in window)) return;
-    var vs = speechSynthesis.getVoices();
-    var pref = ["es-MX", "es-US", "es-419", "es"];
-    for (var i = 0; i < pref.length && !voz; i++) {
-      voz = vs.filter(function (v) { return v.lang && v.lang.toLowerCase().indexOf(pref[i].toLowerCase()) === 0; })
-              .sort(function (a, b) { return (/google|natural|neural/i.test(b.name) ? 1 : 0) - (/google|natural|neural/i.test(a.name) ? 1 : 0); })[0] || null;
-    }
+    var vs = speechSynthesis.getVoices().filter(function (v) { return v.lang && v.lang.toLowerCase().indexOf("es") === 0; });
+    if (!vs.length) return;
+    var rango = function (v) {
+      var l = v.lang.toLowerCase(), n = v.name;
+      var p = (l.indexOf("es-mx") === 0 ? 30 : (l.indexOf("es-us") === 0 || l.indexOf("es-419") === 0) ? 20 : 10);
+      if (VOCES_H.test(n)) p += 100; else if (VOCES_M.test(n)) p -= 100;
+      if (/natural|neural|online/i.test(n)) p += 5;
+      return p;
+    };
+    vs.sort(function (a, b) { return rango(b) - rango(a); });
+    voz = vs[0];
+    vozMasculina = VOCES_H.test(voz.name) || !VOCES_M.test(voz.name);
   }
   if ("speechSynthesis" in window) { elegirVoz(); speechSynthesis.onvoiceschanged = elegirVoz; }
   function decir(texto, alTerminar) {
@@ -238,7 +251,7 @@ main{flex:1;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(320px,.9f
     if (!vozActiva || !("speechSynthesis" in window)) { estado.textContent = "Tu turno"; setTimeout(function () { subt.style.display = "none"; alTerminar && alTerminar(); }, 400); return; }
     speechSynthesis.cancel();
     var u = new SpeechSynthesisUtterance(texto);
-    u.lang = (voz && voz.lang) || "es-MX"; if (voz) u.voice = voz; u.rate = 1.03; u.pitch = 1;
+    u.lang = (voz && voz.lang) || "es-MX"; if (voz) u.voice = voz; u.rate = 1.0; u.pitch = vozMasculina ? 0.95 : 0.6;  // si solo hay voz femenina, se baja el tono
     u.onstart = function () { avatar.classList.add("hablando"); estado.textContent = "MAX está hablando…"; };
     u.onend = u.onerror = function () { avatar.classList.remove("hablando"); subt.style.display = "none"; estado.textContent = manosLibres ? "Te escucho…" : "Tu turno"; alTerminar && alTerminar(); };
     speechSynthesis.speak(u);
