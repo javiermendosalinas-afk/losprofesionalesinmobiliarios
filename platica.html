@@ -94,6 +94,50 @@ main{flex:1;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(320px,.9f
 .caja .fila{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
 .error{color:var(--bermellon);font-size:.85rem;min-height:1.2em;margin-top:6px}
 .oculto{display:none!important}
+
+/* --- Celular (20-nov-2026): pantalla tipo llamada, sin encimados y con letra más grande --- */
+.inicio-cara{display:none}
+@media (max-width:760px){
+  html,body{height:100dvh;overflow:hidden}
+  body{font-size:17px}
+  .barra{padding:10px 14px}
+  .logo{font-size:1.1rem}
+  .envivo{display:none}
+  main{display:flex;flex-direction:column;gap:8px;padding:8px;min-height:0}
+  .escenario{flex:none;min-height:0;flex-direction:row;justify-content:flex-start;align-items:center;gap:14px;padding:10px 14px;border-radius:16px}
+  .avatar{width:64px;flex:none}
+  .aro.a2,.aro.a3,.yo,.etiqueta,.subtitulo{display:none!important}
+  .cara b{font-size:1.2rem}
+  .estado{margin:0;padding:0;text-align:left;font-size:1rem;color:#dfe5f5}
+  .estado::before{content:"MAX";display:block;font-weight:700;font-size:1.15rem;color:#fff}
+  .inicio{position:fixed;inset:0;z-index:30;background:#0f1b3d;overflow-y:auto;justify-content:flex-start;padding:28px 22px 32px;gap:16px}
+  .inicio-cara{display:block;width:128px;height:128px;border-radius:50%;object-fit:cover;object-position:50% 18%;border:4px solid var(--ocre);flex:none}
+  .inicio h1{font-size:2rem}
+  .inicio p{font-size:1.1rem}
+  .inicio .fila{flex-direction:column;width:100%;align-items:center}
+  .inicio .btn{width:100%;max-width:340px;font-size:1.15rem;padding:16px 22px}
+  .nota{font-size:.92rem;line-height:1.45}
+  .panel{flex:1;min-height:0;border-radius:16px}
+  .panel h2{display:none}
+  .chat{min-height:0;padding:10px 12px}
+  .msg{font-size:1.08rem;max-width:92%;line-height:1.45;padding:11px 14px}
+  .msg small{font-size:.78rem}
+  .op{grid-template-columns:1fr}
+  .op img{width:100%;height:160px;min-height:0}
+  .op > div{padding:10px 14px 14px;font-size:1rem}
+  .op div div{padding:0}
+  .op b{font-size:1.08rem}
+  .op .acc button,.op .acc a{font-size:1rem;padding:10px 16px}
+  .vermapa{font-size:1rem;padding:10px 16px}
+  .controles{padding:8px 10px}
+  .controles input{font-size:1.08rem;padding:12px 14px}
+  .redondo{width:48px;height:48px}
+  .bajo{padding:6px 12px 10px;font-size:.95rem;flex-wrap:nowrap}
+  .bajo button{font-size:.95rem;white-space:nowrap}
+  .terminar{padding:10px 16px!important}
+  .caja p,.check{font-size:1rem}
+  .caja label{font-size:.95rem}
+}
 </style>
 </head>
 <body>
@@ -114,6 +158,7 @@ main{flex:1;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(320px,.9f
     <div class="etiqueta">MAX · asistente con IA de Acierta Max</div>
 
     <div class="inicio" id="inicio">
+      <img class="inicio-cara" src="/max.webp" alt="MAX" onerror="this.remove()">
       <h1>Platícale a MAX<br><em>lo que estás buscando</em></h1>
       <p>Háblale o escríbele como a un amigo que sabe de bienes raíces. MAX te hace las preguntas correctas, te muestra opciones reales y al final te asigna un coach de Acierta Max.</p>
       <div class="fila" style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center">
@@ -131,14 +176,14 @@ main{flex:1;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(320px,.9f
       <button type="button" class="redondo mic" id="btnMic" title="Hablar" aria-label="Hablar">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 15a3 3 0 0 0 3-3V6a3 3 0 1 0-6 0v6a3 3 0 0 0 3 3Zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21h2v-2.08A7 7 0 0 0 19 12h-2Z"/></svg>
       </button>
-      <input id="entrada" type="text" placeholder="Escribe aquí o toca el micrófono" maxlength="900" aria-label="Tu mensaje">
+      <input id="entrada" type="text" placeholder="Escribe aquí tu mensaje" maxlength="900" aria-label="Tu mensaje">
       <button type="submit" class="redondo enviar" title="Enviar" aria-label="Enviar">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 20.5 21 12 3 3.5v6.6L15 12 3 13.9z"/></svg>
       </button>
     </form>
     <div class="bajo">
-      <button type="button" id="btnSonido">🔊 Voz de MAX: activada</button>
-      <button type="button" class="terminar" id="btnTerminar">Terminar y recibir mi resumen</button>
+      <button type="button" id="btnSonido">🔊 Voz activada</button>
+      <button type="button" class="terminar" id="btnTerminar">Recibir mi resumen</button>
     </div>
   </section>
 </main>
@@ -327,7 +372,7 @@ main{flex:1;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(320px,.9f
     if (!historial.length) enviar(""); else if (manosLibres) escuchar();
   }
   $("btnVoz").onclick = function () { arrancar(true); };
-  $("btnTexto").onclick = function () { vozActiva = false; $("btnSonido").textContent = "🔇 Voz de MAX: apagada"; arrancar(false); };
+  $("btnTexto").onclick = function () { vozActiva = false; $("btnSonido").textContent = "🔇 Voz apagada"; arrancar(false); };
   if (historial.length) $("inicio").classList.add("oculto");
 
   $("form").addEventListener("submit", function (e) { e.preventDefault(); if (entrada.value.trim()) enviar(entrada.value); });
@@ -337,7 +382,7 @@ main{flex:1;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(320px,.9f
   };
   $("btnSonido").onclick = function () {
     vozActiva = !vozActiva; if (!vozActiva && "speechSynthesis" in window) speechSynthesis.cancel();
-    this.textContent = vozActiva ? "🔊 Voz de MAX: activada" : "🔇 Voz de MAX: apagada";
+    this.textContent = vozActiva ? "🔊 Voz activada" : "🔇 Voz apagada";
   };
   $("btnTerminar").onclick = function () { abrirModal(); };
 
