@@ -72,7 +72,7 @@ em{font-style:italic;color:var(--bermellon)}
 .vida{cursor:pointer}.vida.on .circ{outline:4px solid var(--tinta);outline-offset:6px}
 @media(max-width:980px){.obras{grid-template-columns:repeat(3,1fr)}}@media(max-width:700px){.obras{grid-template-columns:1fr 1fr;gap:28px 16px}.filtros select,.filtros input{min-width:0;width:100%}.filtros label{flex:1 1 45%}}
 footer{background:#111;color:#9C958B;font-size:.88rem;padding:36px 0 100px;line-height:1.6}footer b{color:#fff}
-.flot{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));display:none;z-index:10}.flot .btn{width:100%}@media(max-width:760px){.flot{display:block}}
+.flot{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom));display:none;z-index:10}.flot .btn{padding:12px 18px;font-size:.95rem;box-shadow:0 6px 20px rgba(0,0,0,.25)}@media(max-width:760px){.flot.ver{display:block}}@media(max-width:560px){.metodo{grid-template-columns:1fr}}
 </style></head><body>
 <header class="top"><div class="w"><a class="logo" href="#">Los Profesionales <span>Inmobiliarios</span></a>
 <nav><a href="/platica.html"><b>Platica con MAX</b></a><a href="#vivir">¿Cómo quieres vivir?</a><a href="#galeria">La galería</a><a href="#negocio">Para tu negocio</a><a href="#personas">Las personas</a><a href="#metodo">Cómo trabajamos</a><a href="#propietarios">Vender o rentar</a></nav>
@@ -148,7 +148,8 @@ footer{background:#111;color:#9C958B;font-size:.88rem;padding:36px 0 100px;line-
 <a class="btn bw" href="https://wa.me/523333777337?text=Hola%2C%20vengo%20de%20losprofesionalesinmobiliarios.com" target="_blank" rel="noopener">Escríbenos</a></div></section>
 </main>
 <footer><div class="w"><p><b>Acierta Max, S.A. de C.V.</b> · Los Profesionales Inmobiliarios · Miembros de AMPI Guadalajara y de la National Association of REALTORS®. WhatsApp 33 3377 7337 · <a href="https://acierta.pro">acierta.pro</a> · <a href="https://www.instagram.com/acierta.pro" target="_blank" rel="noopener">Instagram @acierta.pro</a> · <a href="https://acierta.pro/aviso-privacidad.html">Aviso de privacidad</a></p></div></footer>
-<div class="flot"><a class="btn bw" href="https://wa.me/523333777337?text=Hola%2C%20vengo%20de%20losprofesionalesinmobiliarios.com" target="_blank" rel="noopener">Escríbenos por WhatsApp</a></div>
+<div class="flot"><a class="btn bw" href="https://wa.me/523333777337?text=Hola%2C%20vengo%20de%20losprofesionalesinmobiliarios.com" target="_blank" rel="noopener">💬 WhatsApp</a></div>
+<script>(function(){var f=document.querySelector(".flot");if(!f)return;function v(){f.classList.toggle("ver",window.scrollY>650)}window.addEventListener("scroll",v,{passive:true});v();})();</script>
 <script>
 (function(){
 var D=[],sel=[],vista=24,o="V",vida="",$=function(i){return document.getElementById(i)};
